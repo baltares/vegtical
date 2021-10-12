@@ -1,4 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import css */
+@import 'assets/css/normalize.css';
+@import '~@angular/material/_theming.scss';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
+
+/* Reset styles added by Angular Material */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Overwrite Material Theming */
+@include mat-core();
+
+$mat-myapp-primary: (
+    50 : #ebf0f5,
+    100 : #cfdae1,
+    200 : #b2c1cc,
+    300 : #94a7b6,
+    400 : #7d94a5,
+    500 : #668194,
+    600 : #597283,
+    700 : #495e6c,
+    800 : #3b4b57,
+    900 : #29363f,
+    contrast: (
+        50 : #001019,
+        100 : #001019,
+        200 : #001019,
+        300 : #001019,
+        400 : #001019,
+        500 : #001019,
+        600 : #ebf0f5,
+        700 : #ebf0f5,
+        800 : #ebf0f5,
+        900 : #ebf0f5,
+    )
+);
+
+$mat-myapp-accent: (
+    50 : #F5EBEA,
+    100 : #F4CFC6,
+    200 : #EFB1A2,
+    300 : #EA937F,
+    400 : #E87E65,
+    500 : #E76A4E,
+    600 : #DD6449,
+    700 : #CE5E44,
+    800 : #BF5841,
+    900 : #A24F3C,
+    contrast: (
+        50 : #001019,
+        100 : #001019,
+        200 : #001019,
+        300 : #001019,
+        400 : #001019,
+        500 : #001019,
+        600 : #001019,
+        700 : #001019,
+        800 : #001019,
+        900 : #F5EBEA,
+    )
+);
+
+$primary: mat-palette($mat-myapp-primary);
+$accent: mat-palette($mat-myapp-accent);
+$theme: mat-light-theme($primary, $accent);
+@include angular-material-theme($theme);
+
+
+
+/* Other styles */ 
+
