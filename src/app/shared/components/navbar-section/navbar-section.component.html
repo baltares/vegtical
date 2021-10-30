@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="section-toolbar container-shadow">
+    <div class="navbar-center">
+
+        <div class="header-left header-div">
+            <a routerLinkActive="active" routerLink="/home" class="icon-container">
+                <span mat-icon-button class="example-icon" aria-label="Example icon-button with arrow back icon">
+                  <mat-icon>arrow_back</mat-icon>
+                </span>
+                <span class="text">Atrás</span>
+              </a>
+        </div>
+      
+        <div class="header-div">
+            <h3 class="page-title">{{pageTitle}}</h3>
+        </div>
+
+        <div class="header-right header-div">
+          <a routerLinkActive="active" routerLink="/plant-library"class="icon-container">
+            <span class="text">Editar</span>
+            <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+              <mat-icon>edit</mat-icon>
+            </span>
+    
+          </a>
+        </div>
+    </div>
+
+  
+  </mat-toolbar>

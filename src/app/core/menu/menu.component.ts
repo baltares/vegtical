@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  opened?: boolean;
+  year: number;
+
+  constructor() {
+    this.year = new Date().getFullYear();
+   }
 
   ngOnInit(): void {
   }

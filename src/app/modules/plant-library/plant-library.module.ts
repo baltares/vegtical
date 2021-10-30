@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
+
 import { PlantLibraryComponent } from './pages/plant-library/plant-library.component';
 
 
@@ -9,7 +12,9 @@ import { PlantLibraryComponent } from './pages/plant-library/plant-library.compo
     PlantLibraryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    SharedModule
   ],
   exports: [
     PlantLibraryComponent

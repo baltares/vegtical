@@ -1,0 +1,44 @@
+.example-icon {
+    align-items: center;
+    display: inline-flex;
+}
+
+mat-slide-toggle {
+    float:right;
+    margin-top: 12px;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 16px;
+    
+}
+
+#menu-user {
+    border-bottom: 1px solid #bf5841;
+    margin: 8px 0 16px 0;
+}
+
+#menu-footer {
+    border-top: 1px solid #bf5841;
+    text-align: center;
+    margin: 16px 0 0 0;
+    cursor: inherit;
+}
+
+.mat-icon, span, a, .mat-menu-item[disabled] .mat-icon-no-color {
+    color: #ebf0f5 ;
+}
+
+button.mat-menu-item:hover:not([disabled]) {
+    background: rgba(#ebf0f5, 0.1);
+}
+
+#menu-footer.mat-menu-item:hover:not([disabled]) {
+    background: inherit;
+}
+
+.mat-menu-item[disabled] {
+    background: rgba(#ebf0f5, 0.15);
+}

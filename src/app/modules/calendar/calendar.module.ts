@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
+
 import { CalendarComponent } from './pages/calendar/calendar.component';
 
 
@@ -9,7 +12,9 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
     CalendarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    SharedModule
   ],
   exports: [
     CalendarComponent

@@ -1,1 +1,44 @@
-<p>menu works!</p>
+
+    <span mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" id="mat-icon-menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </span>
+
+
+  <mat-menu #menu="matMenu" class="darker-primary" id="mat-menu">
+    <button mat-menu-item id="menu-user">
+      <mat-icon>account_circle</mat-icon>
+      <a href="">Iniciar sesión / Registrarse</a>
+    </button>
+
+    <h4>CONFIGURACIÓN</h4>
+    <button mat-menu-item>
+      <mat-icon>location_on</mat-icon>
+      <span>Hemisferio Norte</span>
+      <mat-slide-toggle checked></mat-slide-toggle>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Notificaciones</span>
+      <mat-slide-toggle checked></mat-slide-toggle>
+    </button>
+    <button mat-menu-item disabled>
+        <mat-icon>dark_mode</mat-icon>
+        <span>Modo oscuro</span>
+        <mat-slide-toggle></mat-slide-toggle>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>vibration</mat-icon>
+        <span>Vibración</span>
+        <mat-slide-toggle></mat-slide-toggle>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>volume_up</mat-icon>
+        <span>Sonido</span>
+        <mat-slide-toggle></mat-slide-toggle>
+      </button>
+
+      <div mat-menu-item id="menu-footer">
+        <span>&#169; Vegtical {{year}} </span>
+      </div>
+  </mat-menu>
+

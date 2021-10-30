@@ -1,62 +1,33 @@
-<mat-toolbar-row> <span>My Application</span></mat-toolbar-row>
-<p>header works!</p>
-<p>
-    <mat-toolbar>
-      <span>My Application</span>
-    </mat-toolbar>
-  </p>
-  
-  <p>
-    <mat-toolbar color="accent">
-     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-     <mat-icon>share</mat-icon>
-   </button>
-  </mat-toolbar>
-  </p>
-  
-  <p>
-    <mat-toolbar color="warn">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar>
-  </p>
-  
-  <p>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <span>My App</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </mat-toolbar-row>
-  
-      <mat-toolbar-row>
-        <span>Second Line</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </p>
+<mat-toolbar color="primary" class="header-toolbar darker-primary container-shadow">
+
+  <div class="header-left header-div">
+    <a routerLink="/home"  class="icon-container">
+          <h1>{{globalDataService.info.appTitle}}</h1>
+    </a>
+  </div>
+
+  <span class="example-spacer"></span>
+
+  <div class="header-right header-div">
+    <a routerLinkActive="active" routerLink="/home" class="icon-container">
+      <span mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+        <mat-icon>home</mat-icon>
+      </span>
+      <span class="text">Huertos</span>
+    </a>
+    <a routerLinkActive="active" routerLink="/plant-library"class="icon-container">
+      <span mat-icon-button class="example-icon" aria-label="Example icon-button with plant icon">
+        <mat-icon>grass</mat-icon>
+      </span>
+      <span class="text">Plantas</span>
+    </a>
+    <a routerLinkActive="active" routerLink="/calendar" class="icon-container">
+      <span mat-icon-button class="example-icon" aria-label="Example icon-button with calendar icon">
+        <mat-icon>calendar_today</mat-icon>
+      </span>
+      <span class="text">Calendario</span>
+    </a>
+    <app-menu class="icon-container"></app-menu>
+  </div>
+
+</mat-toolbar>
