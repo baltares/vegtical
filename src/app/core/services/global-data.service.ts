@@ -6,12 +6,21 @@ import { GlobalDataModel } from '@core/models/global-data.model';
   providedIn: 'root',
 })
 export class GlobalDataService {
+  globalData: any = {};
 
-  info: GlobalDataModel = {};
+  constructor(private http: HttpClient) {
+    // this.loadGlobalData();
+  }
 
-  constructor(private _http: HttpClient) {
-    this._http.get('assets/data/global-data.json').subscribe((resp:any) => {
-      this.info=resp;
-    });
+  // private loadGlobalData() {
+  //   this.http
+  //     .get('assets/data/global-data.json')
+  //     .subscribe((resp: GlobalDataModel) => {
+  //       this.globalData = resp;
+  //     });
+  // }
+
+  getGlobalData(){
+    return this.http.get('assets/data/global-data.json');
   }
 }

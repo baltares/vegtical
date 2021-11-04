@@ -8,19 +8,24 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
-const MaterialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
-  MatSlideToggleModule, MatButtonModule, MatCardModule];
+const materialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
+  MatSlideToggleModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule,
+  MatAutocompleteModule, MatFormFieldModule];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MaterialComponents
+    materialComponents
   ],
   exports: [
-    MaterialComponents,
+    materialComponents,
   ]
 })
 export class MaterialModule { }

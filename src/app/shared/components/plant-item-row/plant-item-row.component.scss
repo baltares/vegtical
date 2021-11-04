@@ -1,0 +1,49 @@
+mat-card {
+    margin: 8px 16px;
+    height: 132px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+.card-img {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+}
+.card-img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.card-content {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-row {
+    width: 100%;
+    margin-top: 8px;
+}
+.card-row-columns {
+    display: flex;
+    justify-content: space-between;
+}
+.card-icons {
+    text-align: right;
+}
+.card-icons .need-sun {
+    margin-right: 16px;
+}
+.card-icons .need-water mat-icon {
+    margin-right: -4px;
+    color: #b2c1cc;
+}
+.card-icons .need-water mat-icon:last-of-type {
+    color: #495e6c;
+}
+.mat-progress-bar {
+    margin-top: 8px;
+}

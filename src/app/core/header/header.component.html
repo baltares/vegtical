@@ -2,7 +2,7 @@
 
   <div class="header-left header-div">
     <a routerLink="/home"  class="icon-container">
-          <h1>{{globalDataService.info.appTitle}}</h1>
+          <h1 *ngIf="title">{{title}}</h1>
     </a>
   </div>
 

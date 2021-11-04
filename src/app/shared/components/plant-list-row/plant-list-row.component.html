@@ -1,0 +1,5 @@
+<ng-container *ngIf="plantsList">
+    <a *ngFor="let plant of plantsList" [routerLink]="['/plant-detail', plant.nameCommon]">
+        <app-plant-item-row [plant]="plant"></app-plant-item-row>
+    </a>
+</ng-container>

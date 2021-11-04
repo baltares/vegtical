@@ -12,8 +12,8 @@ import { CalendarComponent } from '@modules/calendar/pages/calendar/calendar.com
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
-  {path:'garden', component: GardenComponent},
-  {path:'plant-detail', component: PlantDetailComponent},
+  {path:'garden/:name', component: GardenComponent},
+  {path:'plant-detail/:name', component: PlantDetailComponent},
   {path:'plant-library', component: PlantLibraryComponent},
   {path:'calendar', component: CalendarComponent},
   {path:'**', component:HomeComponent}

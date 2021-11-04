@@ -1,4 +1,5 @@
 <app-navbar-section></app-navbar-section>
-<main class="main-container">
+<main class="main-container" *ngIf="plant">
     <p>Plant detail</p>
+    <p>{{plant.nameCommon}}</p>
 </main>

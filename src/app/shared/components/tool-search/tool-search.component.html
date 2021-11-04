@@ -1,0 +1,16 @@
+<form class="example-form" *ngIf="plantsList">
+    <mat-form-field class="example-full-width">
+      <mat-label>¡Busca una planta!</mat-label>
+      <input type="text"
+             placeholder="Escoge una"
+             aria-label="Planta"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let plant of plantsList" [value]="option">
+          {{plant}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+</form>

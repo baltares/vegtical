@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalDataService } from '../services/global-data.service';
+import { GlobalDataModel } from '@core/models/global-data.model';
+import { GlobalDataService } from '@core/services/global-data.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,15 @@ import { GlobalDataService } from '../services/global-data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public globalDataService: GlobalDataService) {}
+  title:string;
+
+  constructor(private _globalDataService: GlobalDataService) {}
 
   ngOnInit(): void {
+    this._globalDataService.getGlobalData().subscribe((params:GlobalDataModel)=>{
+      this.title = params.appTitle;
+      console.log(this.title);
+    });
   }
-
+  
 }

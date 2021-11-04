@@ -1,0 +1,41 @@
+<mat-card>
+    <div class="card-img">
+        <img [src]="plant.image" [alt]="plant.nameCommon">
+    </div>
+    <div class="card-content">
+        <div class="card-row card-row-columns">
+            <div class="card-column">
+                <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
+                <mat-card-subtitle>{{plant.nameScientific}}</mat-card-subtitle>
+            </div>
+            <div class="card-column">
+                <span class="card-icons">
+                    <span class="need-sun">
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" [style.color]="setIconColor()">
+                            {{needSunIcon[plant.needSun]}}
+                        </mat-icon>
+                    </span>
+                    <span class="need-water">
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
+                        [style.color]="plant.needSun==2?'#495e6c':'default'">
+                            water_drop
+                        </mat-icon>
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
+                        [style.color]="plant.needSun>=1?'#495e6c':'default'">
+                            water_drop
+                        </mat-icon>
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
+                            water_drop
+                        </mat-icon>
+                    </span>
+                </span>
+            </div>
+
+        </div>
+        <div class="card-row">
+            <mat-progress-bar mode="determinate" value="40" class="bar-seed"></mat-progress-bar>
+            <mat-progress-bar mode="determinate" value="40" class="bar-harvest"></mat-progress-bar>
+        </div>
+    </div>
+</mat-card>
+<p></p>
