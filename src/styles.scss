@@ -130,6 +130,14 @@ h3 {
     display: flex;
     justify-content: center;
 }
+.second-container {
+    width: 100%;
+    background: #ebf0f5;
+    border: 2px solid #001019;
+    padding: 16px;
+    border-radius: 4px;
+    display: table-cell;
+}
 .section-container-w100 {
     width: 100%;
     text-align: center;
@@ -150,13 +158,6 @@ mat-toolbar.section-toolbar {
 }
 
 /* Tabs */
-mat-tab-group {
-    width: 100%;
-    background: #ebf0f5;
-    border: 2px solid #001019;
-    padding: 8px 16px 16px;
-    border-radius: 4px;
-}
 mat-tab-group .mat-icon {
     margin-right: 8px;
 }

@@ -1,3 +1,88 @@
 .main-container {
     padding-top: 144px;
+    display: block;
+}
+section {
+    display: block;
+    width: 100%;
+}
+.header mat-card {
+    display:flex;
+    justify-content: space-around;
+    vertical-align: middle;
+    align-items: center;
+    padding-bottom: 32px;
+    background: #29363f ;
+    background-image: url(/assets/bg/bg_dark.jpg);
+    border: 4px solid #e76a4e;
+}
+.header .img-small {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .img-small img {
+    max-width: 100%;
+    max-height: 80px;
+}
+.header .plant-img {
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
+    border: 2px solid #bf5841;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    align-items: center;
+    position: relative;
+}
+.header .plant-img img {
+    max-width: 85%;
+    max-height: 85%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    display: block;
+}
+h4 {
+    margin: -20px auto 32px auto;
+    display: table;
+    height: 32px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 4px 24px;
+}
+.resume p {
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(102,129,148,0.5), 2px 2px 2px rgba(102,129,148,0.3);
+}
+.resume {
+    margin-bottom: 48px;
+}
+.resume p::first-letter{
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    color: #29363f; 
+  }
+.description mat-panel-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.description .example-action-buttons{
+    text-align: right;
+}
+.description a {
+    color:#bf5841;
+    text-decoration: underline;
+}
+section p {
+    white-space: pre-wrap;
 }

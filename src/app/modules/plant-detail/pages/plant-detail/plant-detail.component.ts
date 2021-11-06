@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlantsDataModel } from '@core/models/plants-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
@@ -10,6 +10,7 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
 })
 export class PlantDetailComponent implements OnInit {
   plant: PlantsDataModel;
+  pageTitle:string;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,10 +20,18 @@ export class PlantDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this._firebasedbService.getPlants().subscribe((params2: PlantsDataModel[]) => {
+        this.pageTitle = params['name'];
         this.plant = params2.find(
           (plant) => plant.nameCommon == params['name']
         );
       });
     });
+  }
+  openAll() {     
+    
+  }
+  
+  closeAll(){
+
   }
 }

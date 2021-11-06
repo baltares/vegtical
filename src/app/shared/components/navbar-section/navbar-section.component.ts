@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar-section',
@@ -7,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarSectionComponent implements OnInit {
 
-  pageTitle?:string;
+  @Input() pageTitle:string;
 
-  constructor() { 
+  constructor(private _location: Location) { 
     this.pageTitle = "Título de la sección";
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onBack() {
+    this._location.back();
   }
 
 }

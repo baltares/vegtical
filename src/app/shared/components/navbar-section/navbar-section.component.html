@@ -2,7 +2,7 @@
     <div class="navbar-center">
 
         <div class="header-left header-div">
-            <a routerLinkActive="active" routerLink="/home" class="icon-container">
+            <a routerLinkActive="active" class="icon-container" (click)="onBack()">
                 <span mat-icon-button class="example-icon" aria-label="Example icon-button with arrow back icon">
                   <mat-icon>arrow_back</mat-icon>
                 </span>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="header-right header-div">
-          <a routerLinkActive="active" routerLink="/plant-library"class="icon-container">
+          <a routerLinkActive="active" class="icon-container">
             <span class="text">Editar</span>
             <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
               <mat-icon>edit</mat-icon>
