@@ -1,0 +1,39 @@
+mat-card {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #001019
+}
+mat-card-title {
+    font-size: 16px;
+    text-align: center;
+}
+mat-icon {
+    font-size: 20px;
+}
+.card-icons {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.card-icons .need-water {
+    display: flex;
+}
+.card-icons .need-water mat-icon {
+    display: flex;
+    width: fit-content;
+    color: #b2c1cc;
+    font-size: 16px;
+}
+.card-icons .need-water mat-icon:first-of-type {
+    color: #495e6c;
+}
+.card-icons .delete-icon {
+    color: #8a2a19;
+}

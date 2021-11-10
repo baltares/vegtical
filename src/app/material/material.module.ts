@@ -13,11 +13,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 const materialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
   MatSlideToggleModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule,
-  MatAutocompleteModule, MatFormFieldModule, MatExpansionModule];
+  MatAutocompleteModule, MatFormFieldModule, MatExpansionModule, MatGridListModule];
 
 @NgModule({
   declarations: [],

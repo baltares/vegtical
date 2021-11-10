@@ -1,0 +1,33 @@
+<mat-card style="background-image: url({{plant.image}});">
+    <div class="card-column">
+        <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
+    </div>
+    
+    <div class="card-column">
+        <span class="card-icons">
+            <span class="need-sun">
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" [style.color]="setIconColor()">
+                    {{needSunIcon[plant.needSun]}}
+                </mat-icon>
+            </span>
+            <span class="need-water">
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
+                    water_drop
+                </mat-icon>
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
+                [style.color]="plant.needWater>=1?'#495e6c':'default'">
+                    water_drop
+                </mat-icon>
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
+                [style.color]="plant.needWater==2?'#495e6c':'default'">
+                    water_drop
+                </mat-icon>
+            </span>
+            <span class="delete-icon" *ngIf="showDelete">
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Delete icon">
+                    delete
+                </mat-icon>
+            </span>
+        </span>
+    </div>
+</mat-card>

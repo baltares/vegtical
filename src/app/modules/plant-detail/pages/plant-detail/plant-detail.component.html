@@ -1,16 +1,16 @@
 <app-navbar-section [pageTitle]="pageTitle"></app-navbar-section>
 <main class="main-container">
-    <div *ngIf="plant" class="second-container">
+    <mat-card *ngIf="plant">
         <section class="header">
             <mat-card>
                 <span class="sun-img img-small">
-                    <img [src]="'assets/img/sun'+plant.needSun+'.jpg'" alt="Sol">
+                    <img [src]="'assets/img/sun'+plant.needSun+'.png'" alt="Sol">
                 </span>
                 <span class="plant-img">
                     <img [src]="plant.image" [alt]="plant.nameCommon">
                 </span>
                 <span class="water-img img-small">
-                    <img [src]="'assets/img/water'+plant.needWater+'.jpg'" alt="Riego">
+                    <img [src]="'assets/img/water'+plant.needWater+'.png'" alt="Riego">
                 </span>
             </mat-card>
             <h4 mat-raised-button color="accent" 
@@ -54,6 +54,6 @@
                   </mat-expansion-panel>
               </mat-accordion>
         </section>
-    </div>
+    </mat-card>
 
 </main>

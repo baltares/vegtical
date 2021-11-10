@@ -8,14 +8,18 @@ import { NavbarSectionComponent } from './components/navbar-section/navbar-secti
 import { PlantListRowComponent } from './components/plant-list-row/plant-list-row.component';
 import { PlantItemRowComponent } from './components/plant-item-row/plant-item-row.component';
 import { ToolSearchComponent } from './components/tool-search/tool-search.component';
+import { PlantListGridComponent } from './components/plant-list-grid/plant-list-grid.component';
+import { PlantItemSquareBigComponent } from './components/plant-item-square-big/plant-item-square-big.component';
 
 const components = [NavbarSectionComponent, PlantListRowComponent, PlantItemRowComponent,
-  ToolSearchComponent];
+  PlantListGridComponent, PlantItemSquareBigComponent, ToolSearchComponent];
 
 @NgModule({
   declarations: [
     components,
-    ToolSearchComponent
+    ToolSearchComponent,
+    PlantListGridComponent,
+    PlantItemSquareBigComponent
   ],
   imports: [
     CommonModule,

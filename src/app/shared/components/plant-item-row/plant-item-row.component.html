@@ -16,15 +16,15 @@
                         </mat-icon>
                     </span>
                     <span class="need-water">
-                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
-                        [style.color]="plant.needSun==2?'#495e6c':'default'">
-                            water_drop
-                        </mat-icon>
-                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
-                        [style.color]="plant.needSun>=1?'#495e6c':'default'">
-                            water_drop
-                        </mat-icon>
                         <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
+                            water_drop
+                        </mat-icon>
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
+                        [style.color]="plant.needWater>=1?'#495e6c':'default'">
+                            water_drop
+                        </mat-icon>
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
+                        [style.color]="plant.needWater==2?'#495e6c':'default'">
                             water_drop
                         </mat-icon>
                     </span>
