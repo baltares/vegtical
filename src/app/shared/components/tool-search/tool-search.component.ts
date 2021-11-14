@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 import { FormControl } from '@angular/forms';
-import { PlantDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plant-data.model';
 
 @Component({
   selector: 'app-tool-search',

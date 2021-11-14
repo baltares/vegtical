@@ -1,14 +1,41 @@
+<span mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" id="mat-icon-menu"
+  aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</span>
 
-    <span mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" id="mat-icon-menu" aria-label="Example icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
+
+<mat-menu #menu="matMenu" class="darker-primary" id="mat-menu">
+
+  <span id="menu-user">
+
+    <span *ngIf="(auth.isAuthenticated$ | async) === false">
+      <div mat-menu-item class="not-logged">
+        <mat-icon>account_circle</mat-icon>
+        <span>Inicia sesión para ver tus datos</span>
+      </div>
+      <button mat-menu-item (click)="loginWithRedirect()">
+        <mat-icon>login</mat-icon>
+        <span>INICIAR SESIÓN</span>
+      </button>
+    </span>
+
+    <span *ngIf="auth.isAuthenticated$ | async">
+      <div mat-menu-item class="logged" routerLinkActive="active" routerLink="/user"
+      *ngIf="auth.user$ | async as user">
+      <span class="user-img">
+        <img [src]="user.picture" alt="Imagen de usuario"/>
+      </span>
+        <span>Hola, {{ user.name }}</span>
+      </div>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>CERRAR SESIÓN</span>
+      </button>
+    </span>
+
   </span>
 
-
-  <mat-menu #menu="matMenu" class="darker-primary" id="mat-menu">
-    <button mat-menu-item id="menu-user">
-      <mat-icon>account_circle</mat-icon>
-      <a href="">Iniciar sesión / Registrarse</a>
-    </button>
+  <span id="menu-config">
 
     <h4>CONFIGURACIÓN</h4>
     <button mat-menu-item>
@@ -22,23 +49,25 @@
       <mat-slide-toggle checked></mat-slide-toggle>
     </button>
     <button mat-menu-item disabled>
-        <mat-icon>dark_mode</mat-icon>
-        <span>Modo oscuro</span>
-        <mat-slide-toggle></mat-slide-toggle>
-      </button>
-      <button mat-menu-item disabled>
-        <mat-icon>vibration</mat-icon>
-        <span>Vibración</span>
-        <mat-slide-toggle></mat-slide-toggle>
-      </button>
-      <button mat-menu-item disabled>
-        <mat-icon>volume_up</mat-icon>
-        <span>Sonido</span>
-        <mat-slide-toggle></mat-slide-toggle>
-      </button>
+      <mat-icon>dark_mode</mat-icon>
+      <span>Modo oscuro</span>
+      <mat-slide-toggle></mat-slide-toggle>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>vibration</mat-icon>
+      <span>Vibración</span>
+      <mat-slide-toggle></mat-slide-toggle>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>volume_up</mat-icon>
+      <span>Sonido</span>
+      <mat-slide-toggle></mat-slide-toggle>
+    </button>
 
-      <div mat-menu-item id="menu-footer">
-        <span>&#169; Vegtical {{year}} </span>
-      </div>
-  </mat-menu>
+  </span>
 
+
+  <div mat-menu-item id="menu-footer">
+    <span>&#169; Vegtical {{year}} </span>
+  </div>
+</mat-menu>

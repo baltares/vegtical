@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PlantDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plant-data.model';
 
 @Component({
   selector: 'app-plant-item-row',

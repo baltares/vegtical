@@ -18,6 +18,34 @@ h4 {
 #menu-user {
     border-bottom: 1px solid #bf5841;
     margin: 8px 0 16px 0;
+    display: block;
+}
+
+#menu-user .not-logged {
+    cursor: inherit;
+}
+
+#menu-user .logged {
+    display: flex;
+    align-items: center;
+}
+
+#menu-user .user-img {
+    margin-right: 16px;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#menu-user .user-img img {
+    width: 100%;
+}
+
+#menu-config button span {
+    margin-right: 24px;
 }
 
 #menu-footer {
@@ -31,7 +59,7 @@ h4 {
     color: #ebf0f5 ;
 }
 
-button.mat-menu-item:hover:not([disabled]) {
+button.mat-menu-item:hover:not([disabled]), .mat-menu-item.logged:hover:not([disabled]) {
     background: rgba(#ebf0f5, 0.1);
 }
 

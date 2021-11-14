@@ -11,6 +11,9 @@ import { CalendarModule } from '@modules/calendar/calendar.module';
 import { PlantDetailModule } from '@modules/plant-detail/plant-detail.module';
 import { PlantLibraryModule } from '@modules/plant-library/plant-library.module';
 
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PlantLibraryModule } from '@modules/plant-library/plant-library.module'
     GardenModule,
     CalendarModule,
     PlantDetailModule,
-    PlantLibraryModule
+    PlantLibraryModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

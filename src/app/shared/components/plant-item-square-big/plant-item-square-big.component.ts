@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlantDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plant-data.model';
 
 @Component({
   selector: 'app-plant-item-square-big',

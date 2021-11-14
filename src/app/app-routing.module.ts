@@ -7,6 +7,9 @@ import { GardenComponent } from '@modules/garden/pages/garden/garden.component';
 import { PlantDetailComponent } from '@modules/plant-detail/pages/plant-detail/plant-detail.component';
 import { PlantLibraryComponent } from '@modules/plant-library/pages/plant-library/plant-library.component';
 import { CalendarComponent } from '@modules/calendar/pages/calendar/calendar.component';
+import { UserComponent } from '@core/user/user.component';
+
+import { AuthGuard } from '@auth0/auth0-angular';
 
 
 const routes: Routes = [
@@ -16,6 +19,7 @@ const routes: Routes = [
   {path:'plant-detail/:name', component: PlantDetailComponent},
   {path:'plant-library', component: PlantLibraryComponent},
   {path:'calendar', component: CalendarComponent},
+  {path:'user', component: UserComponent, canActivate: [AuthGuard]},
   {path:'**', component:HomeComponent}
 ];
 

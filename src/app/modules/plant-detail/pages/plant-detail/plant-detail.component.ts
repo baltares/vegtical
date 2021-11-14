@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlantDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plant-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 
 @Component({

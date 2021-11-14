@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect({ screen_hint: 'signup' });
+  }
+  logout(): void {
+    this.auth.logout({ returnTo: this.doc.location.origin });
   }
 
 }

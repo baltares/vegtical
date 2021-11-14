@@ -6,11 +6,13 @@ import { MaterialModule } from '@material/material.module';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     MaterialModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    UserComponent
   ]
 })
 export class CoreModule { }

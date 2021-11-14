@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlantDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plant-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 
 @Component({

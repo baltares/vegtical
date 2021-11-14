@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this._globalDataService.getGlobalData().subscribe((params:GlobalDataModel)=>{
       this.title = params.appTitle;
-      console.log(this.title);
     });
   }
   
