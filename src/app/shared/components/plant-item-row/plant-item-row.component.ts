@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PlantsDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plants-data.model';
 
 @Component({
   selector: 'app-plant-item-row',
@@ -8,7 +8,7 @@ import { PlantsDataModel } from '@core/models/plants-data.model';
 })
 export class PlantItemRowComponent implements OnInit {
 
-  @Input() plant!:PlantsDataModel;
+  @Input() plant!:PlantDataModel;
   public needSunIcon = ["wb_cloudy", "brightness_medium", "brightness_high"];
 
   constructor() { }

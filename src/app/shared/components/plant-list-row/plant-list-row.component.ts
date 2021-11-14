@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlantsDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plants-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 
 @Component({
@@ -8,13 +8,13 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
   styleUrls: ['./plant-list-row.component.scss'],
 })
 export class PlantListRowComponent implements OnInit {
-  plantsList: PlantsDataModel[];
+  plantsList: PlantDataModel[];
 
   constructor(private _firebasedbService: FirebasedbService) {}
 
   ngOnInit(): void {
     this._firebasedbService.getPlants()
-      .subscribe((params: PlantsDataModel[]) => {
+      .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });
   }

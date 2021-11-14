@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FirebasedbService {
-  // plantsData: PlantsDataModel[] = [];
+  // plantsData: PlantDataModel[] = [];
 
   constructor(private http: HttpClient) {
     // this.loadPlantsData();
@@ -13,7 +13,7 @@ export class FirebasedbService {
 
   // private loadPlantsData() {
   //   this.http.get('https://vegticaldb-default-rtdb.europe-west1.firebasedatabase.app/Plants.json')
-  //     .subscribe((resp: PlantsDataModel[]) => {
+  //     .subscribe((resp: PlantDataModel[]) => {
   //       this.plantsData = resp;
   //     });
   // }

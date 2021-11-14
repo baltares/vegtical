@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 import { FormControl } from '@angular/forms';
-import { PlantsDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plants-data.model';
 
 @Component({
   selector: 'app-tool-search',
@@ -9,14 +9,14 @@ import { PlantsDataModel } from '@core/models/plants-data.model';
   styleUrls: ['./tool-search.component.scss'],
 })
 export class ToolSearchComponent implements OnInit {
-  plantsList: PlantsDataModel[];
+  plantsList: PlantDataModel[];
   myControl = new FormControl();
 
   constructor(private _firebasedbService: FirebasedbService) {}
 
   ngOnInit(): void {
     this._firebasedbService.getPlants()
-      .subscribe((params: PlantsDataModel[]) => {
+      .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });
   }

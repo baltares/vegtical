@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlantsDataModel } from '@core/models/plants-data.model';
+import { PlantDataModel } from '@core/models/plants-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
   styleUrls: ['./plant-detail.component.scss'],
 })
 export class PlantDetailComponent implements OnInit {
-  plant: PlantsDataModel;
+  plant: PlantDataModel;
   pageTitle:string;
 
   constructor(
@@ -19,7 +19,7 @@ export class PlantDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this._firebasedbService.getPlants().subscribe((params2: PlantsDataModel[]) => {
+      this._firebasedbService.getPlants().subscribe((params2: PlantDataModel[]) => {
         this.pageTitle = params['name'];
         this.plant = params2.find(
           (plant) => plant.nameCommon == params['name']
