@@ -83,7 +83,7 @@ body {
     background-color:#29363f !important;
     color: #ebf0f5 !important;
 }
-.container-shadow {
+.navbar-shadow {
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
 }
 button.mat-raised-button {
@@ -143,6 +143,7 @@ h3 {
     text-align: center;
 }
 
+
 /* Floating menus */
 mat-toolbar {
     position: fixed;
@@ -163,4 +164,25 @@ mat-tab-group .mat-tab-labels .mat-icon {
 }
 mat-tab-group mat-tab-header {
     margin-bottom: 16px;
+}
+
+/* Modal window */
+.modal-container, mat-dialog-container.mat-dialog-container{
+    width: 100%;
+    max-width: 400px;
+    min-height: 540px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    border-radius: 4px;
+}
+h3.mat-dialog-title {
+    text-align: center;
+}
+mat-dialog-content, mat-dialog-actions{
+    width: 100%;
+}
+mat-dialog-actions {
+    justify-content: space-around;
 }

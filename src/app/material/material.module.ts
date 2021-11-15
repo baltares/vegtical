@@ -14,11 +14,13 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 const materialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
   MatSlideToggleModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule,
-  MatAutocompleteModule, MatFormFieldModule, MatExpansionModule, MatGridListModule];
+  MatAutocompleteModule, MatFormFieldModule, MatExpansionModule, MatGridListModule,
+  MatDialogModule];
 
 @NgModule({
   declarations: [],

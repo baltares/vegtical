@@ -1,2 +1,34 @@
-<p>add-garden works!</p>
-<span>Si eres un usuario invitado podrás crear un huerto pero no guardar los cambios</span>
+<div>
+    <h3 mat-dialog-title>Crear nuevo huerto</h3>
+    <div mat-dialog-content>
+        <p>Nombre*:</p>
+        <!-- <mat-form-field appearance="fill">
+    <mat-label>Nombre del huerto</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+    </div>
+    <div mat-dialog-content>
+        <p>Escoge un huerto</p>
+        <!-- <mat-form-field appearance="fill">
+      <mat-label>Nombre del huerto</mat-label>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field> -->
+    </div>
+    <div mat-dialog-content>
+        <p>O crea uno nuevo</p>
+        <!-- <mat-form-field appearance="fill">
+      <mat-label>Nombre del huerto</mat-label>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field> -->
+    </div>
+
+
+    <div mat-dialog-actions>
+        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
+            (click)="onNoClick()" color="primary">CANCELAR</button>
+        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
+            [mat-dialog-close]="" cdkFocusInitial>ACEPTAR</button>
+    </div>
+
+    <span class="guest-user">Si eres un usuario invitado podrás crear un huerto pero no guardar los cambios</span>
+</div>
