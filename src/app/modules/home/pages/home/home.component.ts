@@ -11,6 +11,8 @@ import { AddGardenComponent } from '@modules/home/components/add-garden/add-gard
 })
 export class HomeComponent implements OnInit {
 
+  showLogin: boolean = true;
+
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
     public dialog: MatDialog) { }
@@ -31,6 +33,9 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+  hideLogin(): void {
+    this.showLogin = false;
   }
 
 }

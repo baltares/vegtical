@@ -1,16 +1,21 @@
 <main class="main-container">
   <div class="main-container-center">
 
-    <section class="section-container-w100" *ngIf="(auth.isAuthenticated$ | async) === false">
-      <button mat-raised-button color="accent"
-      class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
-      (click)="loginWithRedirect()"
-      *ngIf="(auth.isAuthenticated$ | async) === false">
-      LOGIN
+    <ng-container *ngIf="showLogin">
+      <section class="section-container-w100" *ngIf="(auth.isAuthenticated$ | async) === false">
+        <button mat-raised-button color="accent"
+        class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
+        (click)="loginWithRedirect()">
+        LOGIN
+      </button>
+      <button mat-raised-button 
+      class="mat-focus-indicator mat-raised-button mat-button-base"
+      (click)="hideLogin()">
+      Seguir como invitado
     </button>
-    <span>También puedes seguir como invitado</span>
-  </section>
-
+    </section>
+    </ng-container>
+    
   <section class="section-container-w100" *ngIf="auth.isAuthenticated$ | async">
     <mat-card>
       <mat-card-header>
