@@ -1,4 +1,5 @@
 export interface PlantDataModel {
+  key?: string | null;
   dateCreation: string;
   graphicIntervalList: GraphicIntervalList[];
   growingInterval: number;

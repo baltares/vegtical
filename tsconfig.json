@@ -10,6 +10,7 @@
       "@shared/*":["src/app/shared/*"],
       "@assets/*":["src/assets/*"]
     },
+    "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": false,

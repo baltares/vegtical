@@ -12,7 +12,10 @@ import { PlantDetailModule } from '@modules/plant-detail/plant-detail.module';
 import { PlantLibraryModule } from '@modules/plant-library/plant-library.module';
 
 import { AuthModule } from '@auth0/auth0-angular';
-import { environment as env } from '../environments/environment';
+import { environment as env, environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 @NgModule({
@@ -32,6 +35,8 @@ import { environment as env } from '../environments/environment';
     AuthModule.forRoot({
       ...env.auth,
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
