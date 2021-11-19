@@ -8,10 +8,54 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 export class FirebaseService {
 
   private dbPlants = '/Plants';
+  private dbGardens = '/Gardens';
+  private dbUsers = '/Users';
+  private dbUsersGardens = '/UsersGardens';
   plantListRef: AngularFireList<PlantDataModel>;
+  gardenListRef: AngularFireList<any>;
+  userListRef: AngularFireList<any>;
+  usergardenListRef: AngularFireList<any>;
 
 
   constructor(private db: AngularFireDatabase) { 
-    this.plantListRef = db.list(this.dbPlants)
+    this.plantListRef = db.list(this.dbPlants);
+    this.gardenListRef = db.list(this.dbGardens);
+    this.userListRef = db.list(this.dbUsers);
+    this.usergardenListRef = db.list(this.dbUsersGardens);
   }
+
+  //GET ALL
+  getPlantList(): AngularFireList<PlantDataModel> {
+    return this.plantListRef;
+  }
+  getGardenList(): AngularFireList<any> {
+    return this.gardenListRef;
+  }
+  getUserList(): AngularFireList<any> {
+    return this.userListRef;
+  }
+  getUserGardenList(): AngularFireList<any> {
+    return this.usergardenListRef;
+  }
+
+  //CREATE
+  createUserGarden(userGarden:any): any {
+    return this.usergardenListRef.push(userGarden);
+  }
+
+  //UPDATE
+  updateUserGarden(id:string, value:any): Promise<void> {
+    return this.usergardenListRef.update(id, value);
+  }
+
+  //DELETE ONE
+  deleteOneUserGarden(id:string): Promise<void> {
+    return this.usergardenListRef.remove(id);
+  }
+
+  //DELETE ALL
+  deleteAllUserGarden(): Promise<void> {
+    return this.usergardenListRef.remove();
+  }
+
 }

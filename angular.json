@@ -27,7 +27,8 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "allowedCommonJsDependencies": [
-              "lodash"
+              "firebase/app",
+              "@firebase/auth"
            ],
             "assets": [
               "src/favicon.ico",

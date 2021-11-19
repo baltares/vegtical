@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
+import { FormsModule } from '@angular/forms';
+
 
 import { HomeComponent } from './pages/home/home.component';
 import { GardenListComponent } from './components/garden-list/garden-list.component';
@@ -18,7 +20,8 @@ import { AddGardenComponent } from './components/add-garden/add-garden.component
   imports: [
     CommonModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports: [
     HomeComponent

@@ -15,7 +15,7 @@ export interface PlantDataModel {
   type: string;
 }
 
-interface GraphicIntervalList {
+export interface GraphicIntervalList {
   finish: string;
   start: string;
   type: string;

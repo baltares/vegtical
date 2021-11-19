@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FirebasedbService } from '@core/services/firebasedb.service';
+import { GardenData } from '@core/classes/garden-data';
+import { FirebaseService } from '@core/services/firebase.service';
 
 @Component({
   selector: 'app-garden',
@@ -9,10 +10,11 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
 })
 export class GardenComponent implements OnInit {
   pageTitle:string;
+  // garden: GardenData = new GardenData();
 
   constructor(
     private route: ActivatedRoute,
-    private _firebasedbService: FirebasedbService
+    private firebase: FirebaseService
   ) {}
 
   ngOnInit(): void {

@@ -1,11 +1,11 @@
 <div>
     <h3 mat-dialog-title>Crear nuevo huerto</h3>
-    <div mat-dialog-content>
+    <div mat-dialog-content *ngIf="!dataSaved">
         <p>Nombre*:</p>
-        <!-- <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill">
     <mat-label>Nombre del huerto</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
+    <input matInput [(ngModel)]="garden.name">
+  </mat-form-field>
     </div>
     <div mat-dialog-content>
         <p>Escoge un huerto</p>
@@ -25,9 +25,9 @@
 
     <div mat-dialog-actions>
         <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
-            (click)="onNoClick()" color="primary">CANCELAR</button>
-        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
-            [mat-dialog-close]="" cdkFocusInitial>ACEPTAR</button>
+            (click)="cancelNewGarden()" color="primary" id="cancelNewGarden">CANCELAR</button>
+        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
+        (click)="saveNewGarden()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">ACEPTAR</button>
     </div>
 
     <span class="guest-user">Si eres un usuario invitado podrás crear un huerto pero no guardar los cambios</span>
