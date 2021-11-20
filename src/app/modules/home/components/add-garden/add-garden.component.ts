@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { GardenData } from '@core/classes/garden-data';
+import { DialogDataModel } from '@core/models/dialog-data.model';
 import { FirebaseService } from '@core/services/firebase.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AddGardenComponent implements OnInit {
   dataSaved = false;
 
   constructor(public dialogRef: MatDialogRef<AddGardenComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: DialogDataModel,
     private firebase: FirebaseService) { }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddGardenComponent } from '@modules/home/components/add-garden/add-garden.component';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,8 @@ import { AddGardenComponent } from '@modules/home/components/add-garden/add-gard
 export class HomeComponent implements OnInit {
 
   showLogin: boolean = true;
+  userName: string;
+  userLogged: boolean;
 
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
@@ -27,15 +30,25 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.setDialogData();
     const dialogRef = this.dialog.open(AddGardenComponent, {
+      data: {userName: this.userName, userLogged: this.userLogged}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
   }
   hideLogin(): void {
     this.showLogin = false;
+  }
+  setDialogData(): void {
+    this.auth.user$.subscribe( result => {
+      this.userName = result.name;
+    })
+    this.auth.isAuthenticated$.subscribe( result => {
+      this.userLogged = result.valueOf();
+    });
   }
 
 }
