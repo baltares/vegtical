@@ -1,4 +1,9 @@
 <app-navbar-section [pageTitle]="pageTitle"></app-navbar-section>
 <main class="main-container">
+    <ng-container *ngIf="garden"></ng-container>
+    
     <p>Garden</p>
+    <span>{{garden.name}}</span>
+    <span>{{garden.height}}</span>
+    <span>{{garden.width}}</span>
 </main>

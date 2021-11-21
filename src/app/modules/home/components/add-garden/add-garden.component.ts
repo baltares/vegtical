@@ -1,31 +1,42 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { GardenData } from '@core/classes/garden-data';
-import { DialogDataModel } from '@core/models/dialog-data.model';
 import { FirebaseService } from '@core/services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-garden',
   templateUrl: './add-garden.component.html',
   styleUrls: ['./add-garden.component.scss']
 })
+
 export class AddGardenComponent implements OnInit {
-  garden: GardenData = new GardenData();
+  garden: GardenData;
   dataSaved = false;
+  inputGardenName: string;
+  inputChoosen: string;
+  inputGardenHeight: number;
+  inputGardenWidth: number;
+  inputGardenSelect: number;
+
 
   constructor(public dialogRef: MatDialogRef<AddGardenComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogDataModel,
-    private firebase: FirebaseService) { }
+    private firebase: FirebaseService,
+    private router: Router) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   cancelNewGarden(): void {
     this.dialogRef.close();
   }
   saveNewGarden(): void {
-    alert('guardar huerto');
+    if(this.inputChoosen=="create"){
+      this.firebase.createTempGarden(this.inputGardenName,this.inputGardenHeight,this.inputGardenWidth);
+    }
+    if(this.inputChoosen=="select"){
+      //datos cargados del huerto modelo
+    }
+    this.router.navigate(['/garden',this.inputGardenName]);
   }
 
   saveGarden(): void {
@@ -33,11 +44,12 @@ export class AddGardenComponent implements OnInit {
       console.log("Huerto creado y guardado");
       this.dataSaved = true;
     });
+
   }
 
   newGarden(): void {
     this.dataSaved = false;
-    this.garden = new GardenData();
+    // this.garden = new GardenData();
   }
 
 }

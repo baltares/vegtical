@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PlantDataModel } from '@core/models/plant-data.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { GardenDataModel } from '@core/models/garden-data.model';
+import { GardenData } from '@core/classes/garden-data';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,7 @@ export class FirebaseService {
   gardenListRef: AngularFireList<any>;
   userListRef: AngularFireList<any>;
   usergardenListRef: AngularFireList<any>;
+  temporaryGarden: GardenDataModel;
 
 
   constructor(private db: AngularFireDatabase) { 
@@ -56,6 +59,17 @@ export class FirebaseService {
   //DELETE ALL
   deleteAllUserGarden(): Promise<void> {
     return this.usergardenListRef.remove();
+  }
+
+  //Manage temporary garden
+  createTempGarden(name:string, height:number, width:number): void {
+  this.temporaryGarden = new GardenData(name,height,width);
+  }
+  getTempGarden(): GardenData {
+    return this.temporaryGarden;
+  }
+  saveTempGarden(): void {
+    this.temporaryGarden = null;
   }
 
 }

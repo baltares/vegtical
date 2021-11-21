@@ -13,8 +13,6 @@ import { AddGardenComponent } from '@modules/home/components/add-garden/add-gard
 export class HomeComponent implements OnInit {
 
   showLogin: boolean = true;
-  userName: string;
-  userLogged: boolean;
 
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
@@ -28,27 +26,26 @@ export class HomeComponent implements OnInit {
   logout(): void {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
+  hideLogin(): void {
+    this.showLogin = false;
+  }
 
   openDialog(): void {
-    this.setDialogData();
-    const dialogRef = this.dialog.open(AddGardenComponent, {
-      data: {userName: this.userName, userLogged: this.userLogged}
-    });
+    // this.setDialogData();
+    const dialogRef = this.dialog.open(AddGardenComponent);
 
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log('The dialog was closed');
     // });
   }
-  hideLogin(): void {
-    this.showLogin = false;
-  }
-  setDialogData(): void {
-    this.auth.user$.subscribe( result => {
-      this.userName = result.name;
-    })
-    this.auth.isAuthenticated$.subscribe( result => {
-      this.userLogged = result.valueOf();
-    });
-  }
+
+  // setDialogData(): void {
+  //   this.auth.user$.subscribe( result => {
+  //     this.userName = result.name;
+  //   })
+  //   this.auth.isAuthenticated$.subscribe( result => {
+  //     this.userLogged = result.valueOf();
+  //   });
+  // }
 
 }

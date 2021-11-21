@@ -10,7 +10,7 @@ import { FirebaseService } from '@core/services/firebase.service';
 })
 export class GardenComponent implements OnInit {
   pageTitle:string;
-  // garden: GardenData = new GardenData();
+  garden: GardenData;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +21,8 @@ export class GardenComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pageTitle = params['name'];
     });
+    this.garden = this.firebase.getTempGarden();
   }
+
 
 }

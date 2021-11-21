@@ -1,9 +1,20 @@
 import { GardenDataModel } from "@core/models/garden-data.model";
 
 export class GardenData implements GardenDataModel{
-    user: string;
-    height: number;
-    width: number;
-    plantGrid: number[][];
-    name: string;
+
+    constructor(
+        public name:string,
+        public height: number,
+        public width: number,
+        public plantGrid?: number[][],
+        ){
+            this.name = name;
+            this.height = height;
+            this.width = width;
+            (plantGrid)?this.plantGrid = plantGrid:this.calculatePlantGrid();
+        }
+
+        calculatePlantGrid(){
+            
+        }
 }

@@ -1,35 +1,57 @@
 <div>
-  <p>{{data.userName}},{{data.userLogged}}</p>
-    <h3 mat-dialog-title>Crear nuevo huerto</h3>
-    <div mat-dialog-content *ngIf="!dataSaved">
-        <p>Nombre*:</p>
-        <mat-form-field appearance="fill">
-    <mat-label>Nombre del huerto</mat-label>
-    <input matInput [(ngModel)]="garden.name">
-  </mat-form-field>
-    </div>
-    <div mat-dialog-content>
-        <p>Escoge un huerto</p>
-        <!-- <mat-form-field appearance="fill">
+  <h3 mat-dialog-title>Crear nuevo huerto</h3>
+  <div mat-dialog-content *ngIf="!dataSaved" id="inputName">
+    <p class="text-title">Nombre:</p>
+    <mat-form-field appearance="fill">
       <mat-label>Nombre del huerto</mat-label>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field> -->
-    </div>
-    <div mat-dialog-content>
-        <p>O crea uno nuevo</p>
-        <!-- <mat-form-field appearance="fill">
-      <mat-label>Nombre del huerto</mat-label>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field> -->
-    </div>
+      <input matInput [(ngModel)]="inputGardenName" type="text">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-content id="inputChoose">
+    <label id="radio-group-label" class="text-title">Escoge una opción:</label>
+    <mat-radio-group aria-labelledby="radio-group-label" class="example-radio-group" [(ngModel)]="inputChoosen">
+      <mat-radio-button value="select">Selecciona un huerto</mat-radio-button>
+      <mat-radio-button value="create">O crea uno nuevo</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div mat-dialog-content id="inputSelect" *ngIf="inputChoosen=='select'">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputGardenSelect">
+        <mat-option></mat-option>
+        <mat-option value="0">Ensalada</mat-option>
+        <mat-option value="1">Pizza</mat-option>
+        <mat-option value="2">Aromáticas</mat-option>
+        <mat-option value="1">Variado</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+      {{season}}
+    </mat-radio-button> -->
+  </div>
+  <div mat-dialog-content id="inputSize" *ngIf="inputChoosen=='create'">
+    <mat-form-field appearance="fill">
+      <mat-label>Alto:</mat-label>
+      <input matInput [(ngModel)]="inputGardenHeight" type="number" min="0.2" max="2" step="0.01"
+      pattern="((0)(\.[2-9][0-9]?))|((1)(\.[0-9][0-9]?)?)|((2)(\.[0][0]?)?)">
+      <span matSuffix>m</span>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ancho:</mat-label>
+      <input matInput [(ngModel)]="inputGardenWidth" type="number" min="0.2" max="2" step="0.01">
+      <span matSuffix>m</span>
+    </mat-form-field>
+  </div>
+  <span class="text-hint" *ngIf="inputChoosen=='select'">Selecciona un valor de la lista desplegable</span>
+  <span class="text-hint" *ngIf="inputChoosen=='create'">Introduce un valor entre 0,2 y 2 metros</span>
 
 
-    <div mat-dialog-actions>
-        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
-            (click)="cancelNewGarden()" color="primary" id="cancelNewGarden">CANCELAR</button>
-        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
-        (click)="saveNewGarden()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">ACEPTAR</button>
-    </div>
+  <div mat-dialog-actions id="buttons">
+          <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
+      (click)="cancelNewGarden()" color="primary" id="cancelNewGarden">CANCELAR</button>
+          <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
+      (click)="saveNewGarden()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">CREAR</button>
 
-    <span class="guest-user">Si eres un usuario invitado podrás crear un huerto pero no guardar los cambios</span>
+  </div>
+
+  <span class="guest-user">Si eres un usuario invitado podrás crear un huerto pero no guardar los cambios</span>
 </div>
