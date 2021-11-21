@@ -69,7 +69,7 @@ export class FirebaseService {
     return this.temporaryGarden;
   }
   saveTempGarden(): void {
-    this.temporaryGarden = null;
+    // this.temporaryGarden = null;
   }
 
 }

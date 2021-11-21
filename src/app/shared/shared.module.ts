@@ -10,16 +10,18 @@ import { PlantItemRowComponent } from './components/plant-item-row/plant-item-ro
 import { ToolSearchComponent } from './components/tool-search/tool-search.component';
 import { PlantListGridComponent } from './components/plant-list-grid/plant-list-grid.component';
 import { PlantItemSquareBigComponent } from './components/plant-item-square-big/plant-item-square-big.component';
+import { PlantIntervalsComponent } from './components/plant-intervals/plant-intervals.component';
 
 const components = [NavbarSectionComponent, PlantListRowComponent, PlantItemRowComponent,
-  PlantListGridComponent, PlantItemSquareBigComponent, ToolSearchComponent];
+  PlantListGridComponent, PlantItemSquareBigComponent, ToolSearchComponent, PlantIntervalsComponent];
 
 @NgModule({
   declarations: [
     components,
     ToolSearchComponent,
     PlantListGridComponent,
-    PlantItemSquareBigComponent
+    PlantItemSquareBigComponent,
+    PlantIntervalsComponent
   ],
   imports: [
     CommonModule,
