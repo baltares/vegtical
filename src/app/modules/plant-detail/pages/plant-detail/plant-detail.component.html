@@ -1,4 +1,4 @@
-<app-navbar-section [pageTitle]="pageTitle"></app-navbar-section>
+<app-navbar-section [pageTitle]="pageTitle" [section]="'plant-detail'"></app-navbar-section>
 <main class="main-container">
     <mat-card *ngIf="plant">
         <section class="header">
@@ -22,6 +22,11 @@
         </section>
         <section class="resume">
             <p>{{plant.txtResume}}</p>
+        </section>
+        <section class="data">
+          <p><strong>TIPO DE PLANTA:  </strong>{{plant.type}}</p>
+          <p><strong>INTERVALOS DE SIEMBRA Y RECOGIDA:</strong></p>
+          <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon" [individual]="true"></app-plant-intervals>
         </section>
         <section class="description">
             <div class="example-action-buttons">

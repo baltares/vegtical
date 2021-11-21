@@ -33,9 +33,7 @@
 
         </div>
         <div class="card-row">
-            <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon"></app-plant-intervals>
-            <!-- <mat-progress-bar mode="determinate" value="40" class="bar-seed"></mat-progress-bar>
-            <mat-progress-bar mode="determinate" value="40" class="bar-harvest"></mat-progress-bar> -->
+            <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon" [individual]="false"></app-plant-intervals>
         </div>
     </div>
 </mat-card>

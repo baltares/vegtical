@@ -15,13 +15,32 @@
         </div>
 
         <div class="header-right header-div">
-          <a routerLinkActive="active" class="icon-container">
+          <a routerLinkActive="active" class="icon-container" id="navSectionEdit">
             <span class="text">Editar</span>
             <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
               <mat-icon>edit</mat-icon>
             </span>
-    
           </a>
+          <a routerLinkActive="active" class="icon-container" id="navSectionDelete">
+            <span class="text">Borrar</span>
+            <span mat-icon-button class="example-icon" aria-label="Example icon-button with delete icon">
+              <mat-icon>delete</mat-icon>
+            </span>
+          </a>
+          <div class="list-navigation" id="navSectionListNavigation">
+            <a routerLinkActive="active" class="icon-container" (click)="previousItem()">
+              <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+                <mat-icon>navigate_before</mat-icon>
+              </span>
+              <span class="text">Anterior</span>
+            </a>
+            <a routerLinkActive="active" class="icon-container" (click)="nextItem()">
+              <span class="text">Siguiente</span>
+              <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+                <mat-icon>navigate_next</mat-icon>
+              </span>
+            </a>
+          </div>
         </div>
     </div>
 

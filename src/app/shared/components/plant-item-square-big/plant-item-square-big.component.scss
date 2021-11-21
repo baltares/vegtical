@@ -35,5 +35,9 @@ mat-icon {
     color: #495e6c;
 }
 .card-icons .delete-icon {
-    color: #8a2a19;
+    // color: #8a2a19;
+    color: #b2c1cc;
+}
+mat-card:hover {
+    border:2px solid #bf5841;
 }

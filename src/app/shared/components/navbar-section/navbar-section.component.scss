@@ -12,6 +12,9 @@ mat-toolbar {
     padding: 0 16px;
     justify-content: space-between;
 }
+.header-left, .header-right {
+    width: 255px;
+}
 .header-div .icon-container {
     padding: 8px;
     cursor: pointer;
