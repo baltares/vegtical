@@ -1,3 +1,45 @@
-.main-container {
+.second-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+.container-garden-list {
+    margin-bottom: 40px;
+}
+.resume {
+    max-width: 800px;
+    text-align: center;
+}
+.row-buttons button {
+    width: 210px;
+}
+.row-buttons button .mat-raised-button.not-accent{
+    background-color: #ebf0f5;
+}
+h3 {
+    text-align: center;
+}
+.text-accent {
+    color: #bf5841;
+    font-weight: 600;
+}
+
+.row-note {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
+.row-note span {
+    color: #597283;
+    font-style: italic;
+    padding: 8px;
+    text-align: center;
+    display: block;
 }

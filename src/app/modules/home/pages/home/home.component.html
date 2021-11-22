@@ -1,7 +1,71 @@
 <main class="main-container">
-  <div class="main-container-center">
+  <div class="second-container">
 
-    <ng-container *ngIf="showLogin">
+    <div class="container-row row-text">
+      <div class="resume" *ngIf="(auth.isAuthenticated$ | async) === false">
+        <h3>¡Hola!</h3>
+        <p>Vegtical es una web-app donde podrás planificar tus huertos verticales.</p>
+        <p>Podrás ver un <span class="text-accent">listado</span> de las plantas más comunes para huertos verticales,
+          escogidas por su tamaño, rendimiento y facilidad de cultivo.</p>
+        <p>Si pinchas en una planta, podrás ver todos los <span class="text-accent">detalles</span> de la misma:
+          sus necesidades de sol y agua, su nombre común y científico, el tipo de planta, en qué fechas se puede plantar
+          y recolectar,
+          y algunos datos descriptivos y de su uso culinario, así como el link para obtener más información</p>
+        <p>También hay un <span class="text-accent">calendario</span>, donde se muestran las fechas de siembra y
+          recolección de las plantas. </p>
+        <p>Por último, podrás crear tu propio <span class="text-accent">huerto</span>, o cargar uno ya predefinido,
+          y poner y quitar las plantas que más te gusten.</p>
+      </div>
+      <div class="container-garden-list" *ngIf="auth.isAuthenticated$ | async">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <h3>Listado de huertos</h3>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="empty-list">
+              <p>Aún no tienes huertos guardados</p>
+            </div>
+            <app-garden-list></app-garden-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+
+
+    <div class="container-row row-buttons">
+
+        <div class="button-login" *ngIf="(auth.isAuthenticated$ | async) === false">
+          <button mat-raised-button color="accent"
+            class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="loginWithRedirect()">
+            LOGIN*
+          </button>
+        </div>
+
+
+      <div class="button-logout" *ngIf="auth.isAuthenticated$ | async">
+        <button mat-raised-button color="accent"
+          class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="logout()">
+          SALIR
+        </button>
+      </div>
+
+      <div class="button-create">
+        <button mat-raised-button color="accent"
+          class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="openDialog()">
+          CREAR NUEVO HUERTO
+        </button>
+      </div>
+
+    </div>
+
+    <div class="row-note" *ngIf="(auth.isAuthenticated$ | async) === false">
+      <span>*También puedes seguir como invitado sin iniciar sesión</span>
+    </div>
+
+    <!-- <ng-container *ngIf="showLogin">
       <section class="section-container-w100" *ngIf="(auth.isAuthenticated$ | async) === false">
         <button mat-raised-button color="accent"
         class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
@@ -14,42 +78,25 @@
       Seguir como invitado
     </button>
     </section>
-    </ng-container>
-    
-  <section class="section-container-w100" *ngIf="auth.isAuthenticated$ | async">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <h3>Listado de huertos</h3>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="empty-list">
-          <p>Aún no tienes huertos guardados</p>
-        </div>
-        <app-garden-list></app-garden-list>
-      </mat-card-content>
-    </mat-card>
-  </section>
+    </ng-container> -->
 
-  <!-- <button mat-raised-button color="accent"
-  class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
-  (click)="logout()"
-  *ngIf="auth.isAuthenticated$ | async">
-  SALIR
-</button> -->
+    <!-- <div class="button-login" *ngIf="showLogin">
+      <ng-container *ngIf="(auth.isAuthenticated$ | async) === false">
+        <button mat-raised-button color="accent"
+          class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="loginWithRedirect()">
+          LOGIN
+        </button>
+      </ng-container>
+    </div>
 
-<section class="section-container-w100">
-  <button mat-raised-button color="accent"
-  class="mat-focus-indicator mat-raised-button mat-button-base mat-accent"
-  (click)="openDialog()">
-  CREAR NUEVO HUERTO
-</button>
-</section>
-
-
-
-
+    <div class="button-guest" *ngIf="showLogin">
+      <ng-container *ngIf="(auth.isAuthenticated$ | async) === false">
+        <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base not-accent"
+          (click)="hideLogin()">
+          Seguir como invitado
+        </button>
+      </ng-container>
+    </div> -->
 
   </div>
 </main>
