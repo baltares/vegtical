@@ -4,13 +4,10 @@
     <div class="container-row row-text">
       <div class="resume" *ngIf="(auth.isAuthenticated$ | async) === false">
         <h3>¡Hola!</h3>
-        <p>Vegtical es una web-app donde podrás planificar tus huertos verticales.</p>
+        <p>Vegtical es una web-app donde podrás planificar tus <span class="text-accent">huertos verticales</span>.</p>
         <p>Podrás ver un <span class="text-accent">listado</span> de las plantas más comunes para huertos verticales,
           escogidas por su tamaño, rendimiento y facilidad de cultivo.</p>
-        <p>Si pinchas en una planta, podrás ver todos los <span class="text-accent">detalles</span> de la misma:
-          sus necesidades de sol y agua, su nombre común y científico, el tipo de planta, en qué fechas se puede plantar
-          y recolectar,
-          y algunos datos descriptivos y de su uso culinario, así como el link para obtener más información</p>
+        <p>Si pinchas en una planta, podrás ver todos los <span class="text-accent">detalles</span> de la misma.</p>
         <p>También hay un <span class="text-accent">calendario</span>, donde se muestran las fechas de siembra y
           recolección de las plantas. </p>
         <p>Por último, podrás crear tu propio <span class="text-accent">huerto</span>, o cargar uno ya predefinido,
