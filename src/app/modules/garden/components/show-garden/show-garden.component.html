@@ -1,8 +1,7 @@
 <h4>MI HUERTO</h4>
 <mat-grid-list cols="{{columns}}" rowHeight="1:1" *ngIf="plantsListOrigin">
     <mat-grid-tile *ngFor="let index of garden.plantList">
-        <!-- <app-plant-item-square-big [plantListOrigin?.[index]]="plant"></app-plant-item-square-big> -->
-        {{index}}
+        <app-plant-item-square-big [plant]="plantsListOrigin[index]"></app-plant-item-square-big>
     </mat-grid-tile>
   </mat-grid-list>
 <div class="row-buttons">

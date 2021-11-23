@@ -1,3 +1,14 @@
 .main-container {
     padding-top: 144px;
+    max-width: 1440px;
+}
+.wrapper-container {
+    width: 100%;
+    display: flex;
+    background-color: pink;
+    height: 100%;
+}
+mat-card {
+    width: 49%;
+    height: 100%;
 }

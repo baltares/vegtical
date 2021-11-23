@@ -1,12 +1,18 @@
 <app-navbar-section [pageTitle]="pageTitle" [section]="'garden'"></app-navbar-section>
 <main class="main-container">
-    <ng-container *ngIf="garden">
-        <span>{{garden.name}}</span>
-        <span>{{garden.height}}</span>
-        <span>{{garden.width}}</span>
-        <span>{{garden.plantList.length}}</span>
-    </ng-container>
-    <app-show-garden [garden]="garden"></app-show-garden>
-    <app-add-plant-to-garden></app-add-plant-to-garden>
+    <div class="wrapper-container">
 
+            <mat-card>
+                        <app-show-garden [garden]="garden"></app-show-garden>
+            </mat-card>
+
+
+            <mat-card>
+                            <app-add-plant-to-garden></app-add-plant-to-garden>
+            </mat-card>
+
+
+    
+    
+    </div>
 </main>
