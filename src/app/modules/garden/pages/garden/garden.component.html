@@ -2,17 +2,53 @@
 <main class="main-container">
     <div class="wrapper-container">
 
-            <mat-card>
-                        <app-show-garden [garden]="garden"></app-show-garden>
-            </mat-card>
+        <div class="wrapper-50">
+            <h4 class="w-100">MI HUERTO</h4>
+            <div class="wrapper-grid wrapper-grid-show w-100">
+                <div class="sun-icons garden-icons">
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #bf5841;">
+                        brightness_high
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #EA937F;">
+                        brightness_medium
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #D9BCA3;">
+                        wb_cloudy
+                    </mat-icon>
+                </div>
+                <div class="show-garden-container">
+                    <app-show-garden [garden]="garden"></app-show-garden>
+                </div>
+                <div class="water-icons garden-icons">
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #b2c1cc;">
+                        water_drop
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #668194;">
+                        water_drop
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #495e6c;">
+                        water_drop
+                    </mat-icon>
+                </div>
+            </div>
+            <div class="row-buttons w-100">
+                        <button mat-raised-button color="accent"
+                            class="mat-focus-indicator mat-raised-button mat-button-base button-exit" (click)="exitGarden()">
+                            SALIR
+                        </button>
+                    <button mat-raised-button color="accent"
+                        class="mat-focus-indicator mat-raised-button mat-button-base mat-accent button-save" (click)="saveGarden()">
+                        GUARDAR
+                    </button>
+            </div>
+        </div>
 
+        <div class="wrapper-50">
+            <h4 class="w-100">LISTADO DE PLANTAS</h4>
+            <div class="wrapper-grid wrapper-grid-add w-100">
+                <app-add-plant-to-garden></app-add-plant-to-garden>
+            </div>
+        </div>
 
-            <mat-card>
-                            <app-add-plant-to-garden></app-add-plant-to-garden>
-            </mat-card>
-
-
-    
-    
     </div>
 </main>

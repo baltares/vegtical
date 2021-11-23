@@ -17,7 +17,7 @@ export class GardenComponent implements OnInit {
     private firebase: FirebaseService
   ) {
 
-    this.garden = new GardenData("test",1.2,0.8,[14,7,14,8,14,3,4,3,12,3,6,13,16,2,6,9,0,9,0,9]);
+    this.garden = new GardenData("test",1.2,0.8,[14,7,14,undefined,14,3,4,3,12,3,6,13,16,2,6,9,0,9,0,9]);
   }
 
   ngOnInit(): void {
@@ -28,4 +28,7 @@ export class GardenComponent implements OnInit {
   }
 
 
+  exitGarden() {}
+
+  saveGarden() {}
 }

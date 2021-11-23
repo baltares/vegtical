@@ -18,8 +18,8 @@ export class PlantItemSquareBigComponent implements OnInit {
 
   public setIconColor(){
     let color:string;
-    if(this.plant.needSun==0) color="#495e6c";
-    else if(this.plant.needSun==1) color="#D9BCA3";
+    if(this.plant.needSun==0) color="#D9BCA3";
+    else if(this.plant.needSun==1) color="#EA937F";
     else if(this.plant.needSun==2) color="#bf5841";
     return color;
   }

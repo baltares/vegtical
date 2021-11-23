@@ -17,11 +17,7 @@ const components = [NavbarSectionComponent, PlantListRowComponent, PlantItemRowC
 
 @NgModule({
   declarations: [
-    components,
-    ToolSearchComponent,
-    PlantListGridComponent,
-    PlantItemSquareBigComponent,
-    PlantIntervalsComponent
+    components
   ],
   imports: [
     CommonModule,

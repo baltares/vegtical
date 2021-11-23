@@ -22,7 +22,6 @@ export class ShowGardenComponent implements OnInit {
     this._firebasedbService.getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsListOrigin = params;
-        console.log(this.plantsListOrigin[0]);
       });
       this.columns = this.calculateColumns();
   }
@@ -30,7 +29,4 @@ export class ShowGardenComponent implements OnInit {
     return Math.floor(this.garden.width / 0.15);
   }
 
-  exitGarden() {}
-
-  saveGarden() {}
 }
