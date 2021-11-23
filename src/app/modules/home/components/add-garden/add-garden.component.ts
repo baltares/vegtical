@@ -40,7 +40,7 @@ export class AddGardenComponent implements OnInit {
   }
 
   saveGarden(): void {
-    this.firebase.createUserGarden(this.garden).then(()=>{
+    this.firebase.createGarden(this.garden).then(()=>{
       console.log("Huerto creado y guardado");
       this.dataSaved = true;
     });

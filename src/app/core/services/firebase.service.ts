@@ -12,19 +12,16 @@ export class FirebaseService {
   private dbPlants = '/Plants';
   private dbGardens = '/Gardens';
   private dbUsers = '/Users';
-  private dbUsersGardens = '/UsersGardens';
   plantListRef: AngularFireList<PlantDataModel>;
   gardenListRef: AngularFireList<any>;
   userListRef: AngularFireList<any>;
-  usergardenListRef: AngularFireList<any>;
   temporaryGarden: GardenDataModel;
 
 
   constructor(private db: AngularFireDatabase) { 
-    this.plantListRef = db.list(this.dbPlants);
-    this.gardenListRef = db.list(this.dbGardens);
-    this.userListRef = db.list(this.dbUsers);
-    this.usergardenListRef = db.list(this.dbUsersGardens);
+    this.plantListRef = this.db.list(this.dbPlants);
+    this.gardenListRef = this.db.list(this.dbGardens);
+    this.userListRef = this.db.list(this.dbUsers);
   }
 
   //GET ALL
@@ -37,28 +34,27 @@ export class FirebaseService {
   getUserList(): AngularFireList<any> {
     return this.userListRef;
   }
-  getUserGardenList(): AngularFireList<any> {
-    return this.usergardenListRef;
-  }
+
+  //GET ONE
 
   //CREATE
-  createUserGarden(userGarden:any): any {
-    return this.usergardenListRef.push(userGarden);
+  createGarden(garden:any): any {
+    return this.gardenListRef.push(garden);
   }
 
   //UPDATE
-  updateUserGarden(id:string, value:any): Promise<void> {
-    return this.usergardenListRef.update(id, value);
+  updateGarden(id:string, value:any): Promise<void> {
+    return this.gardenListRef.update(id, value);
   }
 
   //DELETE ONE
-  deleteOneUserGarden(id:string): Promise<void> {
-    return this.usergardenListRef.remove(id);
+  deleteOneGarden(id:string): Promise<void> {
+    return this.gardenListRef.remove(id);
   }
 
   //DELETE ALL
-  deleteAllUserGarden(): Promise<void> {
-    return this.usergardenListRef.remove();
+  deleteAllGardens(): Promise<void> {
+    return this.gardenListRef.remove();
   }
 
   //Manage temporary garden
@@ -67,9 +63,6 @@ export class FirebaseService {
   }
   getTempGarden(): GardenData {
     return this.temporaryGarden;
-  }
-  saveTempGarden(): void {
-    // this.temporaryGarden = null;
   }
 
 }

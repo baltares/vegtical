@@ -29,12 +29,10 @@ export class NavbarSectionComponent implements OnInit {
 
   selectLinks(){
     if(this.section=='plant-detail'){
-      // document.getElementById('navSectionEdit').classList.add('display-none');
-      // document.getElementById('navSectionDelete').classList.add('display-none');
       document.getElementById('navSectionEdit').setAttribute('style','display:none');
       document.getElementById('navSectionDelete').setAttribute('style','display:none');
     } else if (this.section=='garden'){
-      // document.getElementById('navSectionListNavigation').classList.add('display-none');
+      document.getElementById('navSectionEdit').setAttribute('style','display:none');
       document.getElementById('navSectionListNavigation').setAttribute('style','display:none');
     }
   }

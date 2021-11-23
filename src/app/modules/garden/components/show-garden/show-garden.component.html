@@ -1,0 +1,22 @@
+<h4>MI HUERTO</h4>
+<mat-grid-list cols="{{columns}}" rowHeight="1:1" *ngIf="plantsListOrigin">
+    <mat-grid-tile *ngFor="let index of garden.plantList">
+        <!-- <app-plant-item-square-big [plantListOrigin?.[index]]="plant"></app-plant-item-square-big> -->
+        {{index}}
+    </mat-grid-tile>
+  </mat-grid-list>
+<div class="row-buttons">
+    <div class="button-create">
+        <div class="button-create">
+            <button mat-raised-button color="accent"
+              class="mat-focus-indicator mat-raised-button mat-button-base" (click)="exitGarden()">
+              SALIR
+            </button>
+          </div>
+        <button mat-raised-button color="accent"
+          class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="saveGarden()">
+          GUARDAR
+        </button>
+      </div>
+
+</div>

@@ -15,13 +15,16 @@ export class GardenComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private firebase: FirebaseService
-  ) {}
+  ) {
+
+    this.garden = new GardenData("test",1.2,0.8,[14,7,14,8,14,3,4,3,12,3,6,13,16,2,6,9,0,9,0,9]);
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.pageTitle = params['name'];
     });
-    this.garden = this.firebase.getTempGarden();
+    // this.garden = this.firebase.getTempGarden();
   }
 
 
