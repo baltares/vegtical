@@ -25,7 +25,6 @@ import { UserComponent } from './user/user.component';
   exports: [
     HeaderComponent,
     UserComponent,
-    MaterialModule,
     FormsModule
   ]
 })

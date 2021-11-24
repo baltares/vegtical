@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { PlantDataModel } from '@core/models/plant-data.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { GardenDataModel } from '@core/models/garden-data.model';
-import { GardenData } from '@core/classes/garden-data';
 
 @Injectable({
   providedIn: 'root'
@@ -11,34 +10,41 @@ export class FirebaseService {
 
   private dbPlants = '/Plants';
   private dbGardens = '/Gardens';
-  private dbUsers = '/Users';
   plantListRef: AngularFireList<PlantDataModel>;
   gardenListRef: AngularFireList<any>;
-  userListRef: AngularFireList<any>;
-  temporaryGarden: GardenDataModel;
 
 
   constructor(private db: AngularFireDatabase) { 
     this.plantListRef = this.db.list(this.dbPlants);
     this.gardenListRef = this.db.list(this.dbGardens);
-    this.userListRef = this.db.list(this.dbUsers);
   }
 
   //GET ALL
   getPlantList(): AngularFireList<PlantDataModel> {
-    return this.plantListRef;
+    return this.plantListRef; 
   }
   getGardenList(): AngularFireList<any> {
     return this.gardenListRef;
   }
-  getUserList(): AngularFireList<any> {
-    return this.userListRef;
+  getUserGardens(userName:string): AngularFireList<any> {
+    return this.db.list('/Gardens/'+userName);
   }
-
-  //GET ONE
+  getOneGarden(userName:string, gardenName:string): AngularFireList<any> {
+    return this.gardenListRef;
+  }
+  
+  // firebase.database().ref('/tests')
+  //  .orderByChild("serie").equalTo("0")
+  //  .on('value', (data: DataSnapshot) => {
+  //        data.forEach((child: DataSnapshot) => {
+  //           console.log(child.key, child.val());
+  //        });
 
   //CREATE
-  createGarden(garden:any): any {
+  createUser(garden:GardenDataModel): any {
+    return this.gardenListRef.push(garden);
+  }
+  createGarden(garden:GardenDataModel): any {
     return this.gardenListRef.push(garden);
   }
 
@@ -55,14 +61,6 @@ export class FirebaseService {
   //DELETE ALL
   deleteAllGardens(): Promise<void> {
     return this.gardenListRef.remove();
-  }
-
-  //Manage temporary garden
-  createTempGarden(name:string, height:number, width:number): void {
-  this.temporaryGarden = new GardenData(name,height,width);
-  }
-  getTempGarden(): GardenData {
-    return this.temporaryGarden;
   }
 
 }
