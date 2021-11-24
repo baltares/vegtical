@@ -24,9 +24,12 @@ export class GardenComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pageTitle = params['name'];
     });
-    // this.garden = this.firebase.getTempGarden();
+    this.navBarShadow();
   }
 
+  navBarShadow(){
+    document.getElementById("header-toolbar").setAttribute('style','box-shadow:none');
+  }
 
   exitGarden() {}
 

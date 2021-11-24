@@ -16,27 +16,38 @@ mat-card-title {
 }
 mat-icon {
     font-size: 20px;
+    height: fit-content;
+    width: fit-content;
 }
 .card-icons {
     text-align: center;
     display: flex;
     justify-content: space-between;
 }
-.card-icons .need-water {
+.card-icons .need-water, .card-icons .need-sun {
     display: flex;
+    align-items: center;
 }
 .card-icons .need-water mat-icon {
     display: flex;
-    width: fit-content;
+    font-size: inherit;
     color: #b2c1cc;
-    font-size: 16px;
 }
 .card-icons .need-water mat-icon:first-of-type {
     color: #495e6c;
 }
 .card-icons .delete-icon {
-    // color: #8a2a19;
-    color: #b2c1cc;
+    padding: 4px;
+    border: 1px solid #b2c1cc;
+    background: #ebf0f5;
+    border-radius: 2px;
+    height: 20px;
+    color: #8a2a19;
+    cursor: pointer;
+}
+.card-icons .delete-icon:hover {
+    background: #F5EBEA;
+    border-color: #EFB1A2;
 }
 mat-card:hover {
     border-width: 2px;

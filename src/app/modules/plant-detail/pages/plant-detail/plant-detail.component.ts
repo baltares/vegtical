@@ -26,6 +26,11 @@ export class PlantDetailComponent implements OnInit {
         );
       });
     });
+    this.navBarShadow();
+  }
+
+  navBarShadow(){
+    document.getElementById("header-toolbar").setAttribute('style','box-shadow:none');
   }
   openAll() {     
     

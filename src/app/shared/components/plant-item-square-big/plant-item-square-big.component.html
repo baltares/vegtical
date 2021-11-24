@@ -10,7 +10,7 @@
                     {{needSunIcon[plant.needSun]}}
                 </mat-icon>
             </span>
-            <span class="need-water">
+            <span class="need-water" [style.font-size]="showDelete?'12px':'16px'">
                 <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
                     water_drop
                 </mat-icon>
@@ -23,11 +23,11 @@
                     water_drop
                 </mat-icon>
             </span>
-            <span class="delete-icon" *ngIf="showDelete">
+            <a class="delete-icon" *ngIf="showDelete" (click)="deletePlant()">
                 <mat-icon class="mat-icon" aria-hidden="false" aria-label="Delete icon">
                     delete
                 </mat-icon>
-            </span>
+            </a>
         </span>
     </div>
 </mat-card>

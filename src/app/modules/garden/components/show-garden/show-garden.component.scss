@@ -2,3 +2,18 @@ app-plant-item-square-big {
     height: 100%;
     width: 100%;
 }
+.empty {
+    height: 100%;
+    width: 100%;
+    background-color: #b2c1cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.empty mat-icon {
+    color: #ebf0f5;
+    font-size: 3rem;
+    width: auto;
+    height: auto;
+}

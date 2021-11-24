@@ -1,7 +1,12 @@
 <mat-grid-list cols="{{columns}}" rowHeight="1:1" gutterSize="8px" *ngIf="plantsListOrigin">
     <mat-grid-tile *ngFor="let index of garden.plantList">
-        <app-plant-item-square-big [plant]="plantsListOrigin[index]" *ngIf="plantsListOrigin[index]"></app-plant-item-square-big>
-        <div class="empty" *ngIf="!plantsListOrigin[index]"></div>
+        <app-plant-item-square-big [plant]="plantsListOrigin[index]" [showDelete]="true" 
+        (outputDelete)="deletePlant($event)" *ngIf="plantsListOrigin[index]" ></app-plant-item-square-big>
+        <div class="empty" *ngIf="!plantsListOrigin[index]">
+            <mat-icon class="mat-icon" aria-hidden="false" aria-label="Add plant">
+                add
+            </mat-icon>
+        </div>
     </mat-grid-tile>
   </mat-grid-list>
 

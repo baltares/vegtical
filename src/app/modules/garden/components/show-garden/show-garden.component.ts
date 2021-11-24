@@ -28,5 +28,8 @@ export class ShowGardenComponent implements OnInit {
   calculateColumns(){
     return Math.floor(this.garden.width / 0.15);
   }
+  deletePlant(name:string) {
+    console.log(name);
+  }
 
 }
