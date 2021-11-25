@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 import { HomeComponent } from './pages/home/home.component';
@@ -22,7 +23,8 @@ import { AddGardenComponent } from './components/add-garden/add-garden.component
     CommonModule,
     MaterialModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     HomeComponent

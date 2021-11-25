@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { GardenDataModel } from '@core/models/garden-data.model';
 
 @Component({
   selector: 'app-garden-item',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GardenItemComponent implements OnInit {
 
+  @Input() garden:GardenDataModel;
   constructor() { }
 
   ngOnInit(): void {

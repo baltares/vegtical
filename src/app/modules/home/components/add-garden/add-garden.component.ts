@@ -13,7 +13,6 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AddGardenComponent implements OnInit {
   userName: string;
-  isUserNew: boolean;
   garden: GardenDataModel;
   inputGardenName: string;
   inputChoosen: string;
@@ -42,10 +41,6 @@ export class AddGardenComponent implements OnInit {
     if (!this.userName) {
       alert('No puedes crear un huerto sin estar registrado');
     } else {
-      // this.isUserNew = this.firebase.getUserListObject().query.on()
-      if (this.isUserNew) {
-        this.firebase.createUser(this.userName);
-      }
       if (this.inputChoosen == 'create') {
         this.garden = new GardenData(
           this.userName,

@@ -1,1 +1,6 @@
-<p>garden-list works!</p>
+<span *ngIf="!userGardens || userGardens.length==0">Aún no tienes huertos guardados</span>
+<div *ngIf="userGardens && userGardens.length>0">
+        <a *ngFor="let garden of userGardens" [routerLink]="['/garden', garden.name]">
+            <app-garden-item [garden]="garden"></app-garden-item>
+        </a>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GardenDataModel } from '@core/models/garden-data.model';
+import { FirebaseService } from '@core/services/firebase.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-garden-list',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GardenListComponent implements OnInit {
 
-  constructor() { }
+  userGardens: GardenDataModel[];
+
+  constructor(public firebase:FirebaseService) { }
 
   ngOnInit(): void {
+    this.loadUserGardens();
+  }
+
+  loadUserGardens():void {
+    this.firebase.getAllGardens().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(data => {
+      this.userGardens = data;
+    });
   }
 
 }
