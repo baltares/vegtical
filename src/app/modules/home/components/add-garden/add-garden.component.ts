@@ -9,12 +9,11 @@ import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-add-garden',
   templateUrl: './add-garden.component.html',
-  styleUrls: ['./add-garden.component.scss']
+  styleUrls: ['./add-garden.component.scss'],
 })
-
 export class AddGardenComponent implements OnInit {
-  // profileJson: string = null;
   userName: string;
+  isUserNew: boolean;
   garden: GardenDataModel;
   inputGardenName: string;
   inputChoosen: string;
@@ -22,34 +21,46 @@ export class AddGardenComponent implements OnInit {
   inputGardenWidth: number;
   inputGardenSelect: number;
 
-
-  constructor(public dialogRef: MatDialogRef<AddGardenComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<AddGardenComponent>,
     private firebase: FirebaseService,
     private router: Router,
-    public auth: AuthService) { }
+    public auth: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.auth.user$.subscribe((profile) => {
-      // this.profileJson = JSON.stringify(profile, null, 2);
-      this.userName = profile.sub;
-    });
+    if (this.auth.user$)
+      this.auth.user$.subscribe((profile) => {
+        if (profile != null) this.userName = profile.sub;
+      });
   }
 
   cancelNewGarden(): void {
     this.dialogRef.close();
   }
   saveNewGarden(): void {
-    
-    if(this.inputChoosen=="create"){
-      this.garden = new GardenData(this.userName,this.inputGardenName,this.inputGardenHeight,this.inputGardenWidth)
-      this.firebase.createGarden(this.garden).then(()=>{
-        console.log("Huerto creado y guardado");
-      });
+    if (!this.userName) {
+      alert('No puedes crear un huerto sin estar registrado');
+    } else {
+      // this.isUserNew = this.firebase.getUserListObject().query.on()
+      if (this.isUserNew) {
+        this.firebase.createUser(this.userName);
+      }
+      if (this.inputChoosen == 'create') {
+        this.garden = new GardenData(
+          this.userName,
+          this.inputGardenName,
+          this.inputGardenHeight,
+          this.inputGardenWidth
+        );
+        this.firebase.createGarden(this.garden).then(() => {
+          console.log('Huerto creado y guardado en base de datos');
+        });
+      }
+      if (this.inputChoosen == 'select') {
+        //datos cargados del huerto modelo
+      }
+      this.router.navigate(['/garden', this.inputGardenName]);
     }
-    if(this.inputChoosen=="select"){
-      //datos cargados del huerto modelo
-    }
-    this.router.navigate(['/garden',this.inputGardenName]);
   }
-
 }
