@@ -18,9 +18,9 @@
   <div mat-dialog-content id="inputSelect" *ngIf="inputChoosen=='select'">
     <mat-form-field appearance="fill">
       <mat-select [(ngModel)]="inputGardenSelect">
-        <mat-option value="0">Ensalada</mat-option>
-        <mat-option value="1">Aromáticas</mat-option>
-        <mat-option value="2">Variado</mat-option>
+        <mat-option value="ensalada">Ensalada</mat-option>
+        <mat-option value="aromaticas">Aromáticas</mat-option>
+        <mat-option value="variado">Variado</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -46,7 +46,7 @@
           <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
       (click)="cancelNewGarden()" color="primary" id="cancelNewGarden">CANCELAR</button>
           <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
-      (click)="saveNewGarden()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">CREAR</button>
+      (click)="saveNewGarden2()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">CREAR</button>
 
   </div>
 

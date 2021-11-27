@@ -17,7 +17,8 @@
                     </mat-icon>
                 </div>
                 <div class="show-garden-container">
-                    <app-show-garden [garden]="garden"></app-show-garden>
+                    <app-show-garden [garden]="garden2" *ngIf="garden2"></app-show-garden>
+                    <!-- <app-show-garden *ngIf="pageTitle" [gardenName]="pageTitle"></app-show-garden> -->
                 </div>
                 <div class="water-icons garden-icons">
                     <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" style="color: #b2c1cc;">

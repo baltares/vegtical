@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { GardenData2Model } from '@core/models/garden-data2.model';
-import { AuthService } from '@auth0/auth0-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +8,13 @@ import { AuthService } from '@auth0/auth0-angular';
 export class FirestoreService {
 
   private dbPath = '/gardens';
-  private userKey:string;
 
   usersRef: AngularFirestoreCollection<any> = null;
   userGardensRef: AngularFirestoreCollection<GardenData2Model> = null;
   defaultGardensRef: AngularFirestoreCollection<GardenData2Model> = null;
 
-  constructor(private db: AngularFirestore, private auth: AuthService) {
-    this.getUser();
+  constructor(private db: AngularFirestore) {
     this.usersRef = this.db.collection(this.dbPath);
-    this.userGardensRef = this.db.collection(this.dbPath).doc(this.userKey).collection('userGardens');
-  }
-
-  getUser(): void {
-    if (this.auth.user$)
-    this.auth.user$.subscribe((profile) => {
-      if (profile != null) this.userKey = profile.sub;
-    });
   }
 
   // createUser(): void {
@@ -33,7 +22,8 @@ export class FirestoreService {
   //   this.userGardensRef.doc(this.userKey).set(void);
   // }
 
-  getAllUserGardens(): AngularFirestoreCollection<GardenData2Model> {
+  getAllUserGardens(userName:string): AngularFirestoreCollection<GardenData2Model> {
+    this.userGardensRef = this.db.collection(this.dbPath).doc(userName).collection('userGardens');
     return this.userGardensRef;
   }
   getAllDefaultGardens(): AngularFirestoreCollection<GardenData2Model> {
