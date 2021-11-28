@@ -1,65 +1,102 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { GardenData } from '@core/classes/garden-data';
-import { GardenData2 } from '@core/classes/garden-data2';
+import { GardenData2Model } from '@core/models/garden-data2.model';
 import { FirestoreService } from '@core/services/firestore.service';
 import { map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogDeleteComponent } from '@modules/garden/components/dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-garden',
   templateUrl: './garden.component.html',
-  styleUrls: ['./garden.component.scss']
+  styleUrls: ['./garden.component.scss'],
 })
 export class GardenComponent implements OnInit {
-  pageTitle:string;
-  garden: GardenData;
-  garden2: GardenData2;
-  userGardens2: GardenData2[];
+  pageTitle: string;
+  garden2: GardenData2Model;
+  userGardens2: GardenData2Model[];
   userName: string;
 
   constructor(
     private route: ActivatedRoute,
+    private routeBack: Router,
     private firestore: FirestoreService,
-    private auth: AuthService
-  ) {
-
-    this.garden = new GardenData("test_user","test_garden",1.2,0.8,[14,7,14,999,14,3,4,3,12,3,6,13,16,2,6,9,0,9,0,9]);
-  }
+    private auth: AuthService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.pageTitle = params['name'];
     });
     if (this.auth.user$)
-    this.auth.user$.subscribe((profile) => {
-      if (profile != null) this.userName = profile.sub;
-      console.log(this.userName);
-      if (this.userName) this.loadUserGardens2();
-      console.log(this.userGardens2);
-      if(this.userGardens2) this.garden2 = this.userGardens2.find(garden => garden.name === this.pageTitle);
-      console.log(this.garden2);
-    });
+      this.auth.user$.subscribe((profile) => {
+        if (profile != null) this.userName = profile.sub;
+        this.loadUserGardens();
+      });
     this.navBarShadow();
   }
 
-  navBarShadow(){
-    document.getElementById("header-toolbar").setAttribute('style','box-shadow:none');
+  navBarShadow() {
+    document
+      .getElementById('header-toolbar')
+      .setAttribute('style', 'box-shadow:none');
   }
 
-  loadUserGardens2():void {
-    this.firestore.getAllUserGardens(this.userName).snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  loadUserGardens(): void {
+    this.firestore
+      .getAllUserGardens(this.userName)
+      .snapshotChanges()
+      .pipe(
+        map((changes) =>
+          changes.map((c) => ({
+            id: c.payload.doc.id,
+            ...c.payload.doc.data(),
+          }))
         )
       )
-    ).subscribe(data => {
-      this.userGardens2 = data;
+      .subscribe((data) => {
+        this.userGardens2 = data;
+        this.garden2 = this.userGardens2.find(
+          (garden) => garden.name === this.pageTitle
+        );
+      });
+  }
+
+  exitGarden() {
+    this.routeBack.navigateByUrl('/home');
+  }
+
+  deleteGarden() {
+    const dialogRef = this.dialog.open(DialogDeleteComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+      if (result) {
+        this.firestore
+          .delete(this.garden2.name)
+          .then(() => {
+            alert('Huerto borrado con éxito');
+          })
+          .catch((err) => {
+            console.log(err);
+            alert('Ha habido un error y no se ha podido borrar el huerto');
+          });
+        this.routeBack.navigateByUrl('/home');
+      } else return;
     });
   }
 
-  exitGarden() {}
-
-  saveGarden() {}
+  saveGarden() {
+    console.log(this.garden2);
+    this.firestore
+      .update(this.garden2.name, { plantList: this.garden2.plantList })
+      .then(() => {
+        alert('Huerto guardado con éxito');
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Ha habido un error y no se ha podido guardar el huerto');
+      });
+  }
 }

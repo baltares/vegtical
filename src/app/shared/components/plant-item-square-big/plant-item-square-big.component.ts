@@ -10,7 +10,8 @@ export class PlantItemSquareBigComponent implements OnInit {
 
   @Input() plant!:PlantDataModel;
   @Input() showDelete:boolean;
-  @Output() outputDelete = new EventEmitter<string>();
+  @Input() indexOfList: number;
+  @Output() outputDelete = new EventEmitter<number>();
   public needSunIcon = ["wb_cloudy", "brightness_medium", "brightness_high"];
 
   constructor() { }
@@ -26,7 +27,7 @@ export class PlantItemSquareBigComponent implements OnInit {
   }
 
   public deletePlant() {
-     this.outputDelete.emit(this.plant.nameCommon);
+     this.outputDelete.emit(this.indexOfList);
   }
 
 }

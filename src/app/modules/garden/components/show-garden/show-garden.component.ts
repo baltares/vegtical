@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GardenDataModel } from '@core/models/garden-data.model';
+import { GardenData2Model } from '@core/models/garden-data2.model';
 import { PlantDataModel } from '@core/models/plant-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 
@@ -10,13 +10,11 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
 })
 export class ShowGardenComponent implements OnInit {
 
-  @Input() garden: GardenDataModel;
+  @Input() garden: GardenData2Model;
   columns: number;
   plantsListOrigin: PlantDataModel[];
 
-  constructor(private _firebasedbService: FirebasedbService) { 
-    
-  }
+  constructor(private _firebasedbService: FirebasedbService) { }
 
   ngOnInit(): void {
     this._firebasedbService.getPlants()
@@ -28,8 +26,11 @@ export class ShowGardenComponent implements OnInit {
   calculateColumns(){
     return Math.floor(this.garden.width / 0.15);
   }
-  deletePlant(name:string) {
-    console.log(name);
+
+  deletePlant(indexOfList:number) {
+
+    this.garden.plantList[indexOfList]=null;
+
   }
 
 }
