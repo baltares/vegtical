@@ -7,7 +7,10 @@
             <h4 class="w-100">MI HUERTO</h4>
 
             <div class="wrapper-grid wrapper-grid-show w-100">
-                <div class="sun-icons garden-icons">
+                <div class="sun-icons garden-icons" matTooltip={{tooltipSun}} matTooltipPosition="right">
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="More sun icon" style="color: #29363f ">
+                        add
+                    </mat-icon>
                     <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
                         style="color: #bf5841;">
                         brightness_high
@@ -20,22 +23,31 @@
                         style="color: #D9BCA3;">
                         wb_cloudy
                     </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Less sun icon" style="color: #29363f ">
+                        remove
+                    </mat-icon>
                 </div>
                 <div class="show-garden-container">
                     <app-show-garden [garden]="garden2" *ngIf="garden2"></app-show-garden>
                 </div>
-                <div class="water-icons garden-icons">
-                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
+                <div class="water-icons garden-icons" matTooltip={{tooltipWater}} matTooltipPosition="left">
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Less water icon" style="color: #29363f ">
+                        remove
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of water icon"
                         style="color: #b2c1cc;">
                         water_drop
                     </mat-icon>
-                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of water icon"
                         style="color: #668194;">
                         water_drop
                     </mat-icon>
-                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of water icon"
                         style="color: #495e6c;">
                         water_drop
+                    </mat-icon>
+                    <mat-icon class="mat-icon" aria-hidden="false" aria-label="More water icon" style="color: #29363f ">
+                        add
                     </mat-icon>
                 </div>
             </div>
@@ -45,9 +57,9 @@
                     BORRAR
                 </button>
                 <button mat-raised-button color="accent"
-                class="mat-focus-indicator mat-raised-button mat-button-base button-exit" (click)="exitGarden()">
-                SALIR
-            </button>
+                    class="mat-focus-indicator mat-raised-button mat-button-base button-exit" (click)="exitGarden()">
+                    SALIR
+                </button>
                 <button mat-raised-button color="accent"
                     class="mat-focus-indicator mat-raised-button mat-button-base mat-accent button-save"
                     (click)="saveGarden()">

@@ -15,7 +15,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
-  {path:'garden/:name', component: GardenComponent},
+  {path:'garden/:name', component: GardenComponent, canActivate: [AuthGuard]}, 
   {path:'plant-detail/:name', component: PlantDetailComponent},
   {path:'plant-library', component: PlantLibraryComponent},
   {path:'calendar', component: CalendarComponent},

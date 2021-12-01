@@ -18,12 +18,13 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const materialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
   MatSlideToggleModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule,
   MatAutocompleteModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, 
-  MatExpansionModule, MatGridListModule, MatDialogModule];
+  MatExpansionModule, MatGridListModule, MatDialogModule, MatTooltipModule];
 
 @NgModule({
   declarations: [],

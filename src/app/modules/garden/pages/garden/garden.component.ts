@@ -17,6 +17,10 @@ export class GardenComponent implements OnInit {
   garden2: GardenData2Model;
   userGardens2: GardenData2Model[];
   userName: string;
+  tooltipSun: string =
+    'Intenta colocar las plantas que necesitan más sol en la parte superior del huerto y las plantas que toleran sombra en la parte inferior';
+  tooltipWater: string =
+    'Intenta colocar las plantas que necesitan más riego en la parte inferior del huerto y las plantas que necesitan menos en la parte superior';
 
   constructor(
     private route: ActivatedRoute,
