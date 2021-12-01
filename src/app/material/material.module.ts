@@ -19,12 +19,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 const materialComponents: any[] = [MatToolbarModule, MatIconModule, MatMenuModule, 
   MatSlideToggleModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule,
   MatAutocompleteModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, 
-  MatExpansionModule, MatGridListModule, MatDialogModule, MatTooltipModule];
+  MatExpansionModule, MatGridListModule, MatDialogModule, MatTooltipModule, DragDropModule];
 
 @NgModule({
   declarations: [],

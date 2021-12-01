@@ -9,12 +9,12 @@ export class FirestoreService {
 
   private dbPath = '/gardens';
 
-  usersRef: AngularFirestoreCollection<any> = null;
+  // usersRef: AngularFirestoreCollection<any> = null;
   userGardensRef: AngularFirestoreCollection<GardenData2Model> = null;
   defaultGardensRef: AngularFirestoreCollection<GardenData2Model> = null;
 
   constructor(private db: AngularFirestore) {
-    this.usersRef = this.db.collection(this.dbPath);
+    // this.usersRef = this.db.collection(this.dbPath);
   }
 
   // createUser(): void {
@@ -32,7 +32,6 @@ export class FirestoreService {
   }
 
   createGarden(gardenName:string, garden: GardenData2Model): any {
-    // return this.userGardensRef.add({ ...garden });
     return this.userGardensRef.doc(gardenName).set(garden);
   }
 
