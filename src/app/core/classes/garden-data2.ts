@@ -16,10 +16,9 @@ export class GardenData2 implements GardenData2Model{
 
         calculatePlantGrid(){
             //Asuming standard dimensions for each plant of 30 cm height and 15 cm width
-            let plantsPerRow = this.width / 0.3;
-            let plantsPerColumn = this.height / 0.15;
-            let totalPlants = Math.floor(plantsPerRow * plantsPerColumn);
-            // this.plantList = new Array(totalPlants).fill(999);
+            let plantsPerRow = Math.floor(this.width / 0.15);
+            let plantsPerColumn = Math.floor(this.height / 0.3);
+            let totalPlants = plantsPerRow * plantsPerColumn;
             this.plantList = new Array<number>(totalPlants);
             return this.plantList;
         }
