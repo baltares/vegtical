@@ -1,0 +1,19 @@
+<div  mat-dialog-content id="inputSelect" class="mat-typography">
+
+    <mat-form-field appearance="fill" *ngIf="plantsList">
+        <span>Selecciona una planta:</span>
+      <mat-select [(ngModel)]="inputPlant"  name="plantsList">
+          <mat-option></mat-option>
+        <mat-option *ngFor="let plant of plantsList" [value]="plant.nameCommon">{{plant.nameCommon}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions id="buttons">
+    <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
+(click)="cancelPlant()" color="primary" id="cancelNewGarden">CANCELAR</button>
+    <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
+(click)="savePlant()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">SELECCIONAR</button>
+
+</div>

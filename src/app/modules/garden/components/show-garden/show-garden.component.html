@@ -2,13 +2,12 @@
     #showgarden="cdkDropList" [cdkDropListConnectedTo]="[addplant]" (cdkDropListDropped)="drop($event)">
     <mat-grid-tile *ngFor="let numberOfPlant of garden.plantList; let indexOfList = index" cdkDrag>
         <app-plant-item-square-big [plant]="plantsListOrigin[numberOfPlant]" [showDelete]="true"
-            [indexOfList]="indexOfList" (outputDelete)="deletePlant($event)" *ngIf="plantsListOrigin[numberOfPlant]">
-            {{indexOfList}}
+            [indexOfList]="indexOfList" (outputDelete)="deletePlant($event)" *ngIf="numberOfPlant != null">
         </app-plant-item-square-big>
-        <div class="empty" [indexOfList]="indexOfList" *ngIf="!plantsListOrigin[numberOfPlant]">
+        <a class="empty" [indexOfList]="indexOfList" *ngIf="numberOfPlant == null" (click)="selectPlant(indexOfList)">
             <mat-icon class="mat-icon" aria-hidden="false" aria-label="Add plant">
                 add
             </mat-icon>
-        </div>
+        </a>
     </mat-grid-tile>
 </mat-grid-list>

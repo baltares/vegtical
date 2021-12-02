@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -37,6 +37,12 @@ export class HomeComponent implements OnInit {
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log('The dialog was closed');
     // });
+  }
+
+  getToday(): string {
+    let todayDate = new Date();
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return "Hoy, "+todayDate.getDate()+" de "+months[todayDate.getMonth()];
   }
 
   // setDialogData(): void {
