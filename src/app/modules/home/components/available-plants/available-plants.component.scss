@@ -5,9 +5,15 @@ a {
 a:hover {
     color: #bf5841;
 }
-mat-card mat-icon {
-    margin-right: 8px;
+h4 {
+    display: flex;
+    margin: 8px 0;
 }
-mat-card span {
-    
+h4 span {
+    margin-top: 4px;
+    font-weight: 600;
+    font-size: 16px;
+}
+mat-icon {
+    margin-right: 8px;
 }

@@ -39,7 +39,7 @@ export class FunctionsService {
   checkAvailable(period: string, plant: PlantDataModel): boolean {
     let available: boolean = false;
     plant.graphicIntervalList.forEach((element) => {
-      if ((element.type = period)) {
+      if ((element.type === period)) {
         let today = new Date(Date.now());
         if (today > this.stringToDate(element.start) && today < this.stringToDate(element.finish)) {
           available = true;
