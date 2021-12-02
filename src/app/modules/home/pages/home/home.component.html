@@ -14,14 +14,24 @@
           y poner y quitar las plantas que más te gusten.</p>
       </div>
       <div class="container-garden-list" *ngIf="auth.isAuthenticated$ | async">
-        <mat-card>
-          <mat-card-header class="header-garden-list">
+        <mat-card class="container-mat-card">
+          <mat-card-header class="header">
             <mat-card-title>
               <h3>Tus huertos</h3>
             </mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <app-garden-list></app-garden-list>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="container-mat-card">
+          <mat-card-header class="header">
+            <mat-card-title>
+              <h3>Para hoy:</h3>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-available-plants></app-available-plants>
           </mat-card-content>
         </mat-card>
       </div>

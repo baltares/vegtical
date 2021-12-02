@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { GardenListComponent } from './components/garden-list/garden-list.component';
 import { GardenItemComponent } from './components/garden-item/garden-item.component';
 import { AddGardenComponent } from './components/add-garden/add-garden.component';
+import { AvailablePlantsComponent } from './components/available-plants/available-plants.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AddGardenComponent } from './components/add-garden/add-garden.component
     HomeComponent,
     GardenListComponent,
     GardenItemComponent,
-    AddGardenComponent
+    AddGardenComponent,
+    AvailablePlantsComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-<mat-card style="background-image: url({{plant.image}});">
+<mat-card style="background-image: url({{plant.image}});" [ngClass]="fc.checkBorder(plant)">
     <div class="card-column">
         <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
     </div>

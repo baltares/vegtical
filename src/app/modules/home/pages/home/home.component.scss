@@ -11,9 +11,15 @@
     align-items: center;
 }
 .container-garden-list {
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
+    display: flex;
 }
-.header-garden-list {
+.container-mat-card {
+    height: 100%;
+    width: 250px;
+    margin: 0 8px;
+}
+mat-card-header.header {
     display: block;
 }
 .resume {
