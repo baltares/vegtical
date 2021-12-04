@@ -38,11 +38,10 @@ export class AddGardenComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.auth.user$)
-      this.auth.user$.subscribe((profile) => {
+    this.loadDefaultGardens();
+    this.auth.user$.subscribe((profile) => {
         if (profile != null) this.userName = profile.sub;
-        this.loadDefaultGardens();
-      });
+        });
   }
 
   cancelNewGarden(): void {

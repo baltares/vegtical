@@ -1,7 +1,15 @@
 <mat-dialog-content class="mat-typography">
-    <span>¿Está seguro de que quiere borrar el huerto?</span>
+    <span>¿Estás seguro de que quieres borrar el huerto?</span>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Borrar</button>
+<mat-dialog-actions id="buttons">
+    <button mat-button mat-dialog-close mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base button-exit">CANCELAR</button>
+    <button mat-button [mat-dialog-close]="true" mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" cdkFocusInitial>BORRAR</button>
   </mat-dialog-actions>
+
+  <!-- <div mat-dialog-actions id="buttons">
+    <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
+(click)="cancelPlant()" color="primary" id="cancelNewGarden">CANCELAR</button>
+    <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
+(click)="savePlant()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">SELECCIONAR</button>
+
+</div> -->
