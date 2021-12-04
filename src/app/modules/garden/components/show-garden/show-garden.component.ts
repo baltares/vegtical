@@ -14,7 +14,6 @@ import { SelectPlantComponent } from '../select-plant/select-plant.component';
 export class ShowGardenComponent implements OnInit {
 
   @Input() garden: GardenData2Model;
-  columns: number;
   plantsListOrigin: PlantDataModel[];
 
   constructor(private _firebasedbService: FirebasedbService, public dialog: MatDialog) { }
@@ -24,7 +23,6 @@ export class ShowGardenComponent implements OnInit {
       .subscribe((params: PlantDataModel[]) => {
         this.plantsListOrigin = params;
       });
-      this.columns = this.calculateColumns();
   }
   calculateColumns(){
     return Math.floor(this.garden.width / 0.15);

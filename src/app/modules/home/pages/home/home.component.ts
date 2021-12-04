@@ -4,19 +4,19 @@ import { DOCUMENT } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddGardenComponent } from '@modules/home/components/add-garden/add-garden.component';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   showLogin: boolean = true;
 
-  constructor(public auth: AuthService,
+  constructor(
+    public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -31,27 +31,12 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(): void {
-    // this.setDialogData();
     const dialogRef = this.dialog.open(AddGardenComponent);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
   }
 
   getToday(): string {
     let todayDate = new Date();
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    return "Hoy, "+todayDate.getDate()+" de "+months[todayDate.getMonth()];
+    const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre',];
+    return ('Hoy, ' + todayDate.getDate() + ' de ' + months[todayDate.getMonth()]);
   }
-
-  // setDialogData(): void {
-  //   this.auth.user$.subscribe( result => {
-  //     this.userName = result.name;
-  //   })
-  //   this.auth.isAuthenticated$.subscribe( result => {
-  //     this.userLogged = result.valueOf();
-  //   });
-  // }
-
 }

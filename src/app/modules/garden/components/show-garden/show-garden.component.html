@@ -1,4 +1,4 @@
-<mat-grid-list cols={{columns}} rowHeight="1:1" gutterSize="8px" *ngIf="plantsListOrigin" cdkDropList
+<mat-grid-list cols={{calculateColumns()}} rowHeight="1:1" gutterSize="8px" *ngIf="plantsListOrigin" cdkDropList
     #showgarden="cdkDropList" [cdkDropListConnectedTo]="[addplant]" (cdkDropListDropped)="drop($event)">
     <mat-grid-tile *ngFor="let numberOfPlant of garden.plantList; let indexOfList = index" cdkDrag>
         <app-plant-item-square-big [plant]="plantsListOrigin[numberOfPlant]" [showDelete]="true"
