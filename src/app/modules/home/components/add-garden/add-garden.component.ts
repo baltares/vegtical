@@ -27,6 +27,7 @@ export class AddGardenComponent implements OnInit {
   inputGardenHeight: number;
   inputGardenWidth: number;
   inputGardenSelect: string;
+  numberError: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<AddGardenComponent>,
@@ -75,8 +76,8 @@ export class AddGardenComponent implements OnInit {
       if (this.inputChoosen == 'create') {
         this.garden2 = new GardenData2(
           this.inputGardenName,
-          this.inputGardenHeight,
-          this.inputGardenWidth
+          Math.round(this.inputGardenHeight*100)/100 ,
+          Math.round(this.inputGardenWidth*100)/100
         );
       }
       else if (this.inputChoosen == 'select') {
@@ -106,5 +107,9 @@ export class AddGardenComponent implements OnInit {
     ).subscribe(data => {
       this.defaultGardens = data;
     });
+  }
+
+  checkNumber(inputNumber:number):void {
+    this.numberError = (inputNumber<0.2 || inputNumber>2 )? true:false;
   }
 }

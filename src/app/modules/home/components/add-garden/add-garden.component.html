@@ -1,15 +1,18 @@
 <div class="modal-container">
   <h3 mat-dialog-title>Crear nuevo huerto</h3>
+
   <div mat-dialog-content id="inputName">
     <p class="text-title">Nombre:</p>
-    <mat-form-field appearance="fill">
+    <mat-form-field hintLabel="Texto entre 4 y 20 caracteres" appearance="fill">
       <mat-label>Nombre del huerto</mat-label>
-      <input matInput [(ngModel)]="inputGardenName" type="text">
+      <input matInput [(ngModel)]="inputGardenName" type="text" maxlength="20" minlength="4"  required>
+      <mat-hint align="end">{{inputGardenName?.length || 0}}/20</mat-hint>
     </mat-form-field>
   </div>
+
   <div mat-dialog-content id="inputChoose">
     <label id="radio-group-label" class="text-title">Escoge una opción:</label>
-    <mat-radio-group aria-labelledby="radio-group-label" class="example-radio-group" [(ngModel)]="inputChoosen">
+    <mat-radio-group aria-labelledby="radio-group-label" class="example-radio-group" [(ngModel)]="inputChoosen" required>
       <mat-radio-button value="select">Selecciona un huerto</mat-radio-button>
       <mat-radio-button value="create">O crea uno nuevo</mat-radio-button>
     </mat-radio-group>
@@ -17,7 +20,7 @@
   
   <div mat-dialog-content id="inputSelect" *ngIf="inputChoosen=='select'">
     <mat-form-field appearance="fill">
-      <mat-select [(ngModel)]="inputGardenSelect">
+      <mat-select [(ngModel)]="inputGardenSelect" required>
         <mat-option value="ensalada">Ensalada</mat-option>
         <mat-option value="aromaticas">Aromáticas</mat-option>
         <mat-option value="variado">Variado</mat-option>
@@ -28,25 +31,25 @@
   <div mat-dialog-content id="inputSize" *ngIf="inputChoosen=='create'">
     <mat-form-field appearance="fill">
       <mat-label>Alto:</mat-label>
-      <input matInput [(ngModel)]="inputGardenHeight" type="number" min="0.2" max="2" step="0.01"
-      pattern="((0)(\.[2-9][0-9]?))|((1)(\.[0-9][0-9]?)?)|((2)(\.[0][0]?)?)">
+      <input matInput [(ngModel)]="inputGardenHeight" (blur)="checkNumber(inputGardenHeight)" type="number" min="0.2" max="2" step="0.01" required>
       <span matSuffix>m</span>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Ancho:</mat-label>
-      <input matInput [(ngModel)]="inputGardenWidth" type="number" min="0.2" max="2" step="0.01">
+      <input matInput [(ngModel)]="inputGardenWidth" (blur)="checkNumber(inputGardenWidth)" type="number" min="0.2" max="2" step="0.01" required>
       <span matSuffix>m</span>
     </mat-form-field>
   </div>
   <span class="text-hint" *ngIf="inputChoosen=='select'">Selecciona un valor de la lista desplegable</span>
-  <span class="text-hint" *ngIf="inputChoosen=='create'">Introduce un valor entre 0,2 y 2 metros</span>
+  <span class="text-hint" *ngIf="inputChoosen=='create' && !numberError">Introduce un valor entre 0,2 y 2 metros</span>
+  <mat-error class="text-error" *ngIf="numberError">Las medidas han de estar comprendidas entre 0,2 y 2 metros</mat-error>
 
 
   <div mat-dialog-actions id="buttons">
           <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base" mat-button
       (click)="cancelNewGarden()" color="primary" id="cancelNewGarden">CANCELAR</button>
           <button mat-raised-button class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" mat-button
-      (click)="saveNewGarden2()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden">CREAR</button>
+      (click)="saveNewGarden2()" [mat-dialog-close]="" cdkFocusInitial id="saveNewGarden" [disabled]="numberError">CREAR</button>
 
   </div>
 
