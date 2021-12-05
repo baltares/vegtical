@@ -1,0 +1,12 @@
+<mat-card [id]="plant.nameCommon" >
+    <div class="card-img">
+        <img [src]="plant.image" [alt]="plant.nameCommon">
+    </div>
+    <div class="card-name">
+                <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
+    </div>
+    <div class="card-intervals">
+        <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon" [individual]="false"></app-plant-intervals>
+    </div>
+</mat-card>
+<p></p>

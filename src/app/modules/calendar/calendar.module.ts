@@ -4,12 +4,16 @@ import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { CalendarComponent } from './pages/calendar/calendar.component';
+import { CalendarYearListComponent } from './components/calendar-year-list/calendar-year-list.component';
+import { CalendarYearItemComponent } from './components/calendar-year-item/calendar-year-item.component';
 
 
 
 @NgModule({
   declarations: [
-    CalendarComponent
+    CalendarComponent,
+    CalendarYearListComponent,
+    CalendarYearItemComponent
   ],
   imports: [
     CommonModule,

@@ -3,21 +3,22 @@
     <mat-tab-group class="second-container">
         <mat-tab>
             <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">date_range</mat-icon>
-                CALENDARIO - MES
-            </ng-template>
-            contenido 1
-        </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
                 <mat-icon class="example-tab-icon">view_list</mat-icon>
                 CALENDARIO - AÑO
             </ng-template>
             <ng-template matTabContent>
-                <app-plant-list-row></app-plant-list-row>
+                <app-calendar-year-list></app-calendar-year-list>
             </ng-template>
             
         </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">date_range</mat-icon>
+                CALENDARIO - MES
+            </ng-template>
+            Componente calendario
+        </mat-tab>
+
     </mat-tab-group>
 
 </main>

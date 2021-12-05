@@ -1,0 +1,4 @@
+<!-- <span class="today"></span> -->
+<ng-container *ngIf="plantsList">
+        <app-calendar-year-item *ngFor="let plant of plantsList" [plant]="plant"></app-calendar-year-item>
+</ng-container>
