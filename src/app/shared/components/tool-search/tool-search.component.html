@@ -1,16 +1,17 @@
-<form class="example-form" *ngIf="plantsList">
-    <mat-form-field class="example-full-width">
-      <mat-label>¡Busca una planta!</mat-label>
-      <input type="text"
-             placeholder="Escoge una"
-             aria-label="Planta"
-             matInput
-             [formControl]="myControl"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let plant of plantsList" [value]="option">
-          {{plant}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+<form class="example-form" *ngIf="options && plantsList">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>¡Busca una planta!</mat-label>
+    <input type="text" aria-label="Planta" matInput [formControl]="inputSearch" [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async; let index = index" [value]="option">
+        <a [routerLink]="['/plant-detail', option]">
+          <span class="img-container">
+            <img class="example-option-img" aria-hidden [src]="plantsList[index].image" height="25">
+          </span>
+          <span>{{option}}</span> |
+          <small>{{plantsList[index].nameScientific}}</small>
+        </a>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 </form>
