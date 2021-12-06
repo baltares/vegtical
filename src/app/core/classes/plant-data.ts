@@ -1,6 +1,9 @@
 import { PlantDataModel, GraphicIntervalList } from "@core/models/plant-data.model";
 
-export class PlantData implements PlantDataModel{
+/**
+ * Class implementing PlantDataModel
+ */
+export class PlantData implements PlantDataModel {
     key?: string;
     dateCreation: string;
     graphicIntervalList: GraphicIntervalList[];
@@ -15,5 +18,5 @@ export class PlantData implements PlantDataModel{
     txtResume: string;
     txtWikiLink: string;
     type: string;
-    
+
 }

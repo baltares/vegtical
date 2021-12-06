@@ -5,18 +5,19 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
 @Component({
   selector: 'app-calendar-year-list',
   templateUrl: './calendar-year-list.component.html',
-  styleUrls: ['./calendar-year-list.component.scss']
+  styleUrls: ['./calendar-year-list.component.scss'],
 })
 export class CalendarYearListComponent implements OnInit {
   plantsList: PlantDataModel[];
 
-  constructor(private _firebasedbService: FirebasedbService) { }
+  constructor(private _firebasedbService: FirebasedbService) {}
 
   ngOnInit(): void {
-    this._firebasedbService.getPlants()
+    //subscription to get plants from firebasedbService
+    this._firebasedbService
+      .getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });
   }
-
 }

@@ -5,26 +5,32 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-
   opened?: boolean;
   year: number;
   profileJson: string = null;
 
-  constructor(public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document) {
+  constructor(
+    public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document
+  ) {
     this.year = new Date().getFullYear();
-   }
+  }
 
   ngOnInit(): void {}
 
+  /**
+   * Calling auth function to login to signup screen
+   */
   loginWithRedirect(): void {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
+  /**
+   * Logout returning to document origin
+   */
   logout(): void {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
-
 }

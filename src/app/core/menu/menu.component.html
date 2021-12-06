@@ -1,13 +1,16 @@
+<!-- Icon to trigger menu -->
 <span mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" id="mat-icon-menu"
   aria-label="Example icon-button with a menu">
   <mat-icon>more_vert</mat-icon>
 </span>
 
-
+<!-- Menu -->
 <mat-menu #menu="matMenu" class="darker-primary" id="mat-menu">
 
+  <!-- User login and name -->
   <span id="menu-user">
 
+    <!-- Show user name if auth -->
     <span *ngIf="(auth.isAuthenticated$ | async) === false">
       <div mat-menu-item class="not-logged">
         <mat-icon>account_circle</mat-icon>
@@ -19,12 +22,12 @@
       </button>
     </span>
 
+    <!-- Show login or logout links -->
     <span *ngIf="auth.isAuthenticated$ | async">
-      <div mat-menu-item class="logged" routerLinkActive="active" routerLink="/user"
-      *ngIf="auth.user$ | async as user">
-      <span class="user-img">
-        <img [src]="user.picture" alt="Imagen de usuario"/>
-      </span>
+      <div mat-menu-item class="logged" routerLinkActive="active" routerLink="/user" *ngIf="auth.user$ | async as user">
+        <span class="user-img">
+          <img [src]="user.picture" alt="Imagen de usuario" />
+        </span>
         <span>Hola, {{ user.name }}</span>
       </div>
       <button mat-menu-item (click)="logout()">
@@ -35,6 +38,7 @@
 
   </span>
 
+  <!-- Configuration options -->
   <span id="menu-config">
 
     <h4>CONFIGURACIÓN</h4>
@@ -67,6 +71,7 @@
   </span>
 
 
+  <!-- Copyright -->
   <div mat-menu-item id="menu-footer">
     <span>&#169; Vegtical {{year}} </span>
   </div>

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FirebaseService } from '@core/services/firebase.service';
 import { Router } from '@angular/router';
-import { GardenDataModel } from '@core/models/garden-data.model';
-import { GardenData } from '@core/classes/garden-data';
 import { GardenData2Model } from '@core/models/garden-data2.model';
 import { GardenData2 } from '@core/classes/garden-data2';
 import { AuthService } from '@auth0/auth0-angular';
@@ -17,7 +14,6 @@ import { map } from 'rxjs/operators';
 })
 export class AddGardenComponent implements OnInit {
   userName: string;
-  garden: GardenDataModel;
   garden2: GardenData2Model;
   defaultGarden: GardenData2Model;
   defaultGardens: GardenData2Model[];
@@ -31,7 +27,6 @@ export class AddGardenComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AddGardenComponent>,
-    private firebase: FirebaseService,
     private firestore: FirestoreService,
     private router: Router,
     public auth: AuthService
@@ -47,27 +42,7 @@ export class AddGardenComponent implements OnInit {
   cancelNewGarden(): void {
     this.dialogRef.close();
   }
-  saveNewGarden(): void {
-    if (!this.userName) {
-      alert('No puedes crear un huerto sin estar registrado');
-    } else {
-      if (this.inputChoosen == 'create') {
-        this.garden = new GardenData(
-          this.userName,
-          this.inputGardenName,
-          this.inputGardenHeight,
-          this.inputGardenWidth
-        );
-        this.firebase.createGarden(this.garden).then(() => {
-          console.log('Huerto creado y guardado en base de datos');
-        });
-      }
-      if (this.inputChoosen == 'select') {
-        //datos cargados del huerto modelo
-      }
-      this.router.navigate(['/garden', this.inputGardenName]);
-    }
-  }
+
   saveNewGarden2(): void {
     if (!this.userName) {
       alert('No puedes crear un huerto sin estar registrado');

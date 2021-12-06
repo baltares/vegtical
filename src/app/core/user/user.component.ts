@@ -4,18 +4,17 @@ import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-
   profileJson: string = null;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {}
 
   ngOnInit(): void {
+    //Subscription to auth to get user data
     this.auth.user$.subscribe(
-      (profile) => (this.profileJson = JSON.stringify(profile, null, 2)),
+      (profile) => (this.profileJson = JSON.stringify(profile, null, 2))
     );
   }
-
 }

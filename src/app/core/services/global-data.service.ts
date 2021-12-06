@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GlobalDataModel } from '@core/models/global-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,19 +7,13 @@ import { GlobalDataModel } from '@core/models/global-data.model';
 export class GlobalDataService {
   globalData: any = {};
 
-  constructor(private http: HttpClient) {
-    // this.loadGlobalData();
-  }
+  constructor(private http: HttpClient) {}
 
-  // private loadGlobalData() {
-  //   this.http
-  //     .get('assets/data/global-data.json')
-  //     .subscribe((resp: GlobalDataModel) => {
-  //       this.globalData = resp;
-  //     });
-  // }
-
-  getGlobalData(){
+  /**
+   * Function to get the data from an archive with HttpClient
+   * @returns 
+   */
+  getGlobalData() {
     return this.http.get('assets/data/global-data.json');
   }
 }

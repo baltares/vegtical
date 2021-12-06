@@ -1,13 +1,16 @@
 <mat-toolbar color="primary" class="header-toolbar darker-primary navbar-shadow" id="header-toolbar">
 
+  <!-- Aplication title -->
   <div class="header-left header-div">
-    <a routerLink="/home"  class="icon-container">
-          <h1 *ngIf="title">{{title}}</h1>
+    <a routerLink="/home" class="icon-container">
+      <h1 *ngIf="title">{{title}}</h1>
     </a>
   </div>
 
+  <!-- Spacer -->
   <span class="example-spacer"></span>
 
+  <!-- Links group -->
   <div class="header-right header-div">
     <a routerLinkActive="active" routerLink="/home" class="icon-container">
       <span mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
@@ -15,7 +18,7 @@
       </span>
       <span class="text">Huertos</span>
     </a>
-    <a routerLinkActive="active" routerLink="/plant-library"class="icon-container">
+    <a routerLinkActive="active" routerLink="/plant-library" class="icon-container">
       <span mat-icon-button class="example-icon" aria-label="Example icon-button with plant icon">
         <mat-icon>grass</mat-icon>
       </span>
@@ -27,6 +30,7 @@
       </span>
       <span class="text">Calendario</span>
     </a>
+    <!-- Link to menu -->
     <app-menu class="icon-container"></app-menu>
   </div>
 

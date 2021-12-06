@@ -4,14 +4,12 @@ import { PlantDataModel } from '@core/models/plant-data.model';
 @Component({
   selector: 'app-calendar-year-item',
   templateUrl: './calendar-year-item.component.html',
-  styleUrls: ['./calendar-year-item.component.scss']
+  styleUrls: ['./calendar-year-item.component.scss'],
 })
 export class CalendarYearItemComponent implements OnInit {
-  @Input() plant:PlantDataModel;
+  @Input() plant: PlantDataModel;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

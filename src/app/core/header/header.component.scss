@@ -1,32 +1,35 @@
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 64px;
-    color: #bf5841;
+  font-family: "Lobster", cursive;
+  font-size: 64px;
+  color: #bf5841;
 }
 .header-div .icon-container {
-    padding: 8px;
-    cursor: pointer;
+  padding: 8px;
+  cursor: pointer;
 }
 .header-left a {
-    margin-top: 8px;
+  margin-top: 8px;
 }
 .header-right a {
-    margin-left: 8px;
+  margin-left: 8px;
 }
-.header-right .icon-container,  .header-right .example-icon{
-    display: inline-flex;
-    vertical-align: middle;
-    align-items: center;
-} 
+.header-right .icon-container,
+.header-right .example-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
 .header-right span.text {
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin-left: 8px;
-    margin-top: 3px
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-left: 8px;
+  margin-top: 3px;
 }
-a:hover,  app-menu:hover mat-icon, a.active {
-    color: #bf5841;
+a:hover,
+app-menu:hover mat-icon,
+a.active {
+  color: #bf5841;
 }

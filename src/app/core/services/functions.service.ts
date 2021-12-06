@@ -5,8 +5,13 @@ import { PlantDataModel } from '@core/models/plant-data.model';
   providedIn: 'root',
 })
 export class FunctionsService {
-  constructor() {}
+  constructor() { }
 
+  /**
+   * Function to transform a string date into Date format
+   * @param date 
+   * @returns standarDate
+   */
   stringToDate(date: string): Date {
     //strings with following pattern: "21-12"
     let year = new Date().getFullYear();
@@ -15,13 +20,27 @@ export class FunctionsService {
     let standarDate = new Date(year, month, day);
     return standarDate;
   }
+  /**
+   * Function to get the day of the year of a Date
+   * @param date 
+   * @returns 
+   */
   dateToDayOfYear(date: Date): number {
-    return Math.floor((date.getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) /1000/60/60/24);
+    return Math.floor((date.getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) / 1000 / 60 / 60 / 24);
   }
+  /**
+   * Function to transform the day of the year into percent
+   * @param date
+   * @returns 
+   */
   dayOfYearPercent(date: number): string {
     return Math.ceil((date * 100) / 365) + '%';
   }
-
+  /**
+   * Function to set border according to date
+   * @param plant 
+   * @returns 
+   */
   checkBorder(plant: PlantDataModel): string {
     let addBorderClass: string = '';
     let classSeed: boolean = false;
@@ -36,6 +55,12 @@ export class FunctionsService {
     addBorderClass = (classSeed ? 'seed' : '') + (classHarvest ? 'harvest' : '');
     return addBorderClass;
   }
+  /**
+   * Function to check if a plant is in a period
+   * @param period 
+   * @param plant 
+   * @returns 
+   */
   checkAvailable(period: string, plant: PlantDataModel): boolean {
     let available: boolean = false;
     plant.graphicIntervalList.forEach((element) => {

@@ -5,27 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '@material/material.module';
 import { FormsModule } from '@angular/forms';
 
+// Core components
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    MenuComponent,
-    UserComponent
-  ],
+  declarations: [HeaderComponent, MenuComponent, UserComponent],
   imports: [
     CommonModule,
     RouterModule,
     HttpClientModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
   ],
-  exports: [
-    HeaderComponent,
-    UserComponent,
-    FormsModule
-  ]
+  exports: [HeaderComponent, UserComponent, FormsModule],
 })
-export class CoreModule { }
+export class CoreModule {}

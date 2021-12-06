@@ -1,72 +1,62 @@
 .example-icon {
-    align-items: center;
-    display: inline-flex;
+  align-items: center;
+  display: inline-flex;
 }
-
 mat-slide-toggle {
-    float:right;
-    margin-top: 12px;
+  float: right;
+  margin-top: 12px;
 }
-
 h4 {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 16px;
-    
+  text-align: center;
+  font-weight: bold;
+  margin-top: 16px;
 }
-
 #menu-user {
-    border-bottom: 1px solid #bf5841;
-    margin: 8px 0 16px 0;
-    display: block;
+  border-bottom: 1px solid #bf5841;
+  margin: 8px 0 16px 0;
+  display: block;
 }
-
 #menu-user .not-logged {
-    cursor: inherit;
+  cursor: inherit;
 }
-
 #menu-user .logged {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 #menu-user .user-img {
-    margin-right: 16px;
-    height: 24px;
-    width: 24px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+  margin-right: 16px;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-
 #menu-user .user-img img {
-    width: 100%;
+  width: 100%;
 }
-
 #menu-config button span {
-    margin-right: 24px;
+  margin-right: 24px;
 }
-
 #menu-footer {
-    border-top: 1px solid #bf5841;
-    text-align: center;
-    margin: 16px 0 0 0;
-    cursor: inherit;
+  border-top: 1px solid #bf5841;
+  text-align: center;
+  margin: 16px 0 0 0;
+  cursor: inherit;
 }
-
-.mat-icon, span, a, .mat-menu-item[disabled] .mat-icon-no-color {
-    color: #ebf0f5 ;
+.mat-icon,
+span,
+a,
+.mat-menu-item[disabled] .mat-icon-no-color {
+  color: #ebf0f5;
 }
-
-button.mat-menu-item:hover:not([disabled]), .mat-menu-item.logged:hover:not([disabled]) {
-    background: rgba(#ebf0f5, 0.1);
+button.mat-menu-item:hover:not([disabled]),
+.mat-menu-item.logged:hover:not([disabled]) {
+  background: rgba(#ebf0f5, 0.1);
 }
-
 #menu-footer.mat-menu-item:hover:not([disabled]) {
-    background: inherit;
+  background: inherit;
 }
-
 .mat-menu-item[disabled] {
-    background: rgba(#ebf0f5, 0.15);
+  background: rgba(#ebf0f5, 0.15);
 }

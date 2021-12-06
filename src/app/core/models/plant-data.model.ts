@@ -1,3 +1,6 @@
+/**
+ * Plant interface
+ */
 export interface PlantDataModel {
   key?: string | null;
   dateCreation: string;
@@ -14,7 +17,9 @@ export interface PlantDataModel {
   txtWikiLink: string;
   type: string;
 }
-
+/**
+ * Graphic Interval List interface
+ */
 export interface GraphicIntervalList {
   finish: string;
   start: string;
