@@ -4,6 +4,7 @@ import { MaterialModule } from '@material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+//Shared components
 import { NavbarSectionComponent } from './components/navbar-section/navbar-section.component';
 import { PlantListRowComponent } from './components/plant-list-row/plant-list-row.component';
 import { PlantItemRowComponent } from './components/plant-item-row/plant-item-row.component';
@@ -13,24 +14,26 @@ import { PlantItemSquareBigComponent } from './components/plant-item-square-big/
 import { PlantIntervalsComponent } from './components/plant-intervals/plant-intervals.component';
 import { PlantListGridDdComponent } from './components/plant-list-grid-dd/plant-list-grid-dd.component';
 
-const components = [NavbarSectionComponent, PlantListRowComponent, PlantItemRowComponent,
-  PlantListGridComponent, PlantItemSquareBigComponent, ToolSearchComponent, PlantIntervalsComponent,
-  PlantListGridDdComponent];
+const components = [
+  NavbarSectionComponent,
+  PlantListRowComponent,
+  PlantItemRowComponent,
+  PlantListGridComponent,
+  PlantItemSquareBigComponent,
+  ToolSearchComponent,
+  PlantIntervalsComponent,
+  PlantListGridDdComponent,
+];
 
 @NgModule({
-  declarations: [
-    components,
-    PlantListGridDdComponent
-  ],
+  declarations: [components],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
-  exports: [
-    components
-  ]
+  exports: [components],
 })
-export class SharedModule { }
+export class SharedModule {}

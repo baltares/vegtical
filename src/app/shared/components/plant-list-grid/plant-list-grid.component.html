@@ -1,5 +1,4 @@
-<mat-grid-list *ngIf="plantsList" 
-    cols="5" rowHeight="1:1" gutterSize="8px">
+<mat-grid-list *ngIf="plantsList" cols="5" rowHeight="1:1" gutterSize="8px">
     <a *ngFor="let plant of plantsList" [routerLink]="['/plant-detail', plant.nameCommon]">
         <mat-grid-tile>
             <app-plant-item-square-big [plant]="plant"></app-plant-item-square-big>

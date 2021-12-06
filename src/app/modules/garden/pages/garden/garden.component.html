@@ -1,12 +1,15 @@
+<!-- Garden page navbar -->
 <app-navbar-section [pageTitle]="pageTitle" [section]="'garden'"></app-navbar-section>
 <main class="main-container">
     <div class="wrapper-container">
 
         <div class="wrapper-50">
-
             <h4 class="w-100">MI HUERTO</h4>
 
+            <!-- Show garden block -->
             <div class="wrapper-grid wrapper-grid-show w-100">
+
+                <!-- Need of sun icons bar -->
                 <div class="sun-icons garden-icons" matTooltip={{tooltipSun}} matTooltipPosition="right">
                     <mat-icon class="mat-icon" aria-hidden="false" aria-label="More sun icon" style="color: #29363f ">
                         add
@@ -27,9 +30,13 @@
                         remove
                     </mat-icon>
                 </div>
+
+                <!-- Garden container -->
                 <div class="show-garden-container">
                     <app-show-garden [garden]="garden2" *ngIf="garden2"></app-show-garden>
                 </div>
+
+                <!-- Need of water icons bar -->
                 <div class="water-icons garden-icons" matTooltip={{tooltipWater}} matTooltipPosition="left">
                     <mat-icon class="mat-icon" aria-hidden="false" aria-label="Less water icon" style="color: #29363f ">
                         remove
@@ -50,7 +57,10 @@
                         add
                     </mat-icon>
                 </div>
+
             </div>
+
+            <!-- Edit garden buttons -->
             <div class="row-buttons w-100">
                 <button mat-raised-button color="accent"
                     class="mat-focus-indicator mat-raised-button mat-button-base button-exit" (click)="exitGarden()">
@@ -68,6 +78,7 @@
             </div>
         </div>
 
+        <!-- List of plants block -->
         <div class="wrapper-50">
             <h4 class="w-100">LISTADO DE PLANTAS</h4>
             <div class="wrapper-grid wrapper-grid-add w-100">

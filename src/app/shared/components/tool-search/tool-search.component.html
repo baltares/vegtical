@@ -1,8 +1,12 @@
 <form class="example-form" *ngIf="options && plantsList">
   <mat-form-field class="example-full-width" appearance="outline">
+
+    <!-- Input search -->
     <mat-label>¡Busca una planta!</mat-label>
-    <input type="text" aria-label="Planta" matInput [formControl]="inputSearch" [matAutocomplete]="auto" 
-    [(ngModel)]="inputText" (keyup.enter)="checkPlant()">
+    <input type="text" aria-label="Planta" matInput [formControl]="inputSearch" [matAutocomplete]="auto"
+      [(ngModel)]="inputText" (keyup.enter)="checkPlant()">
+
+    <!-- Selector -->
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
       <mat-option *ngFor="let option of filteredOptions | async; let index = index" [value]="option">
         <a [routerLink]="['/plant-detail', option]">
@@ -14,5 +18,6 @@
         </a>
       </mat-option>
     </mat-autocomplete>
+    
   </mat-form-field>
 </form>

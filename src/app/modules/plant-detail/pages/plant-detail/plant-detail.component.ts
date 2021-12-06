@@ -10,7 +10,7 @@ import { FirebasedbService } from '@core/services/firebasedb.service';
 })
 export class PlantDetailComponent implements OnInit {
   plant: PlantDataModel;
-  pageTitle:string;
+  pageTitle: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,26 +18,32 @@ export class PlantDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //subscription to get list of plants
+    //and then subscription to get the plant by pageTitle
     this.route.params.subscribe((params) => {
-      this._firebasedbService.getPlants().subscribe((params2: PlantDataModel[]) => {
-        this.pageTitle = params['name'];
-        this.plant = params2.find(
-          (plant) => plant.nameCommon == params['name']
-        );
-      });
+      this._firebasedbService
+        .getPlants()
+        .subscribe((params2: PlantDataModel[]) => {
+          this.pageTitle = params['name'];
+          this.plant = params2.find(
+            (plant) => plant.nameCommon == params['name']
+          );
+        });
     });
+    //Function to set styles
     this.navBarShadow();
   }
 
-  navBarShadow(){
-    document.getElementById("header-toolbar").setAttribute('style','box-shadow:none');
+  /**
+   * Function to remove main navbar shadow
+   */
+  navBarShadow() {
+    document
+      .getElementById('header-toolbar')
+      .setAttribute('style', 'box-shadow:none');
   }
-  openAll() {     
-    
-  }
-  
-  closeAll(){
 
-  }
-  
+  //Accordion functions not implemented
+  openAll() {}
+  closeAll() {}
 }

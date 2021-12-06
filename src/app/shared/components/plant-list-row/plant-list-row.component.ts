@@ -13,7 +13,9 @@ export class PlantListRowComponent implements OnInit {
   constructor(private _firebasedbService: FirebasedbService) {}
 
   ngOnInit(): void {
-    this._firebasedbService.getPlants()
+    //subscription to get list of plants
+    this._firebasedbService
+      .getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });

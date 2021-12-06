@@ -1,28 +1,38 @@
 <mat-card style="background-image: url({{plant.image}});" [ngClass]="fc.checkBorder(plant)">
+
+    <!-- Plant name -->
     <div class="card-column">
         <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
     </div>
-    
+
+    <!-- Plant icons -->
     <div class="card-column">
         <span class="card-icons">
+
+            <!-- Sun icons -->
             <span class="need-sun">
-                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" [style.color]="setIconColor()">
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
+                    [style.color]="setIconColor()">
                     {{needSunIcon[plant.needSun]}}
                 </mat-icon>
             </span>
+
+            <!-- Water icons -->
             <span class="need-water" [style.font-size]="showDelete?'12px':'16px'">
                 <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
                     water_drop
                 </mat-icon>
-                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
-                [style.color]="plant.needWater>=1?'#495e6c':'default'">
+                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
+                    [style.color]="plant.needWater>=1?'#495e6c':'default'">
                     water_drop
                 </mat-icon>
                 <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
-                [style.color]="plant.needWater==2?'#495e6c':'default'">
+                    [style.color]="plant.needWater==2?'#495e6c':'default'">
                     water_drop
                 </mat-icon>
             </span>
+
+            <!-- Delete icon -->
             <a class="delete-icon" *ngIf="showDelete" (click)="deletePlant()">
                 <mat-icon class="mat-icon" aria-hidden="false" aria-label="Delete icon">
                     delete

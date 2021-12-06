@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FirebasedbService } from '@core/services/firebasedb.service';
 import { FormControl } from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { PlantDataModel } from '@core/models/plant-data.model';
 import { Router } from '@angular/router';
 
@@ -18,30 +18,44 @@ export class ToolSearchComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   @Input() inputText: string;
 
-  constructor(private _firebasedbService: FirebasedbService, private _router:Router) {}
+  constructor(
+    private _firebasedbService: FirebasedbService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.filteredOptions = this.inputSearch.valueChanges
-    .pipe(
+    //subscription to changes on inputSearch
+    this.filteredOptions = this.inputSearch.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
+      map((value) => this._filter(value))
     );
-
-    this._firebasedbService.getPlants()
+    //subscription to get list of plants and options array
+    this._firebasedbService
+      .getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
-        this.options = this.plantsList.map(plant => plant.nameCommon);
+        this.options = this.plantsList.map((plant) => plant.nameCommon);
       });
   }
 
+  /**
+   * Function to filter results
+   * @param value 
+   * @returns 
+   */
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-    // return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
-  checkPlant():void {
-    if(this.options.includes(this.inputText)) this._router.navigate(['/plant-detail', this.inputText]);
+  /**
+   * Function to navigate to searched plant when enter key up
+   * @returns 
+   */
+  checkPlant(): void {
+    if (this.options.includes(this.inputText))
+      this._router.navigate(['/plant-detail', this.inputText]);
     else return;
   }
 }

@@ -3,21 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
 
+//Plant detail components
 import { PlantDetailComponent } from './pages/plant-detail/plant-detail.component';
 
-
-
 @NgModule({
-  declarations: [
-    PlantDetailComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    SharedModule
-  ],
-  exports: [
-    PlantDetailComponent
-  ]
+  declarations: [PlantDetailComponent],
+  imports: [CommonModule, MaterialModule, SharedModule],
+  exports: [PlantDetailComponent],
 })
-export class PlantDetailModule { }
+export class PlantDetailModule {}

@@ -1,9 +1,12 @@
+<!-- Common header for all the app -->
 <app-header></app-header>
+
+<!-- Txt when loading -->
 <ng-container *ngIf="auth.isLoading$ | async; else loaded">
     <span>Cargando...</span>
 </ng-container>
 
+<!-- Router outlet when loaded -->
 <ng-template #loaded>
     <router-outlet></router-outlet>
 </ng-template>
-

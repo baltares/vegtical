@@ -29,30 +29,43 @@ export class GardenComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //subscription to get garden name
     this.route.params.subscribe((params) => {
       this.pageTitle = params['name'];
     });
+    //subscription to get user name
     if (this.auth.user$)
       this.auth.user$.subscribe((profile) => {
         if (profile != null) this.userName = profile.sub;
         this.loadUserGardens();
       });
+    //calling style functions
     this.navBarShadow();
     this.setTooltips();
   }
 
+  /**
+   * Function to delete main navbar shadow
+   */
   navBarShadow() {
     document
       .getElementById('header-toolbar')
       .setAttribute('style', 'box-shadow:none');
   }
+  /**
+   * Function to set tooltips for icons bars
+   */
   setTooltips() {
     this.tooltipSun =
-    'Intenta colocar las plantas que necesitan más sol en la parte superior del huerto y las plantas que toleran sombra en la parte inferior';
+      'Intenta colocar las plantas que necesitan más sol en la parte superior del huerto y las plantas que toleran sombra en la parte inferior';
     this.tooltipWater =
-    'Intenta colocar las plantas que necesitan más riego en la parte inferior del huerto y las plantas que necesitan menos en la parte superior';
+      'Intenta colocar las plantas que necesitan más riego en la parte inferior del huerto y las plantas que necesitan menos en la parte superior';
   }
 
+  /**
+   * Function calling FirestoreService to get user gardens list
+   * and actual garden by pageTitle
+   */
   loadUserGardens(): void {
     this.firestore
       .getAllUserGardens(this.userName)
@@ -73,10 +86,18 @@ export class GardenComponent implements OnInit {
       });
   }
 
+  //EDIT GARDEN BUTTONS FUNCTIONS
+
+  /**
+   * Function to exit and return home
+   */
   exitGarden() {
     this.routeBack.navigateByUrl('/home');
   }
 
+  /**
+   * Function to open dialog to delete garden and return home
+   */
   deleteGarden() {
     const dialogRef = this.dialog.open(DialogDeleteComponent);
     dialogRef.afterClosed().subscribe((result) => {
@@ -95,6 +116,9 @@ export class GardenComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to save new plant list to garden
+   */
   saveGarden() {
     this.firestore
       .update(this.garden2.name, { plantList: this.garden2.plantList })

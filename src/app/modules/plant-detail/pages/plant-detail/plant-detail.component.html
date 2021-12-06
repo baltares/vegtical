@@ -1,62 +1,78 @@
+<!-- Plant detail navbar -->
 <app-navbar-section [pageTitle]="pageTitle" [section]="'plant-detail'"></app-navbar-section>
+
 <main class="main-container">
-    <mat-card *ngIf="plant">
-        <section class="header">
-            <mat-card>
-                <span class="sun-img img-small">
-                    <img [src]="'assets/img/sun'+plant.needSun+'.png'" alt="Sol">
-                </span>
-                <span class="plant-img">
-                    <img [src]="plant.image" [alt]="plant.nameCommon">
-                </span>
-                <span class="water-img img-small">
-                    <img [src]="'assets/img/water'+plant.needWater+'.png'" alt="Riego">
-                </span>
-            </mat-card>
-            <h4 mat-raised-button color="accent" 
-            class="mat-focus-indicator mat-raised-button mat-button-base mat-accent">
-                {{plant.nameScientific}}</h4>
-        </section>
+  <mat-card *ngIf="plant">
 
-        <section class="resume">
-            <p>{{plant.txtResume}}</p>
-        </section>
-        <section class="data">
-          <p><strong>TIPO DE PLANTA:  </strong>{{plant.type}}</p>
-          <p><strong>INTERVALOS DE SIEMBRA Y RECOGIDA:</strong></p>
-          <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon" [individual]="true"></app-plant-intervals>
-        </section>
-        <section class="description">
-            <div class="example-action-buttons">
-                <button mat-button (click)="openAll()">
-                    Desplegar todo el texto
-                </button>
-                <button mat-button (click)="closeAll()">Ocultar todo el texto</button>
-              </div>
-              <mat-accordion class="example-headers-align" multi>
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title> Descripción</mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <P>{{plant.txtDescription}}</P>
-                </mat-expansion-panel>
-              
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>Usos culinarios y medicinales</mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <P>{{plant.txtCulinary}}</P>
-                </mat-expansion-panel>
+    <!-- Header icons section -->
+    <section class="header">
+      <mat-card>
+        <span class="sun-img img-small">
+          <img [src]="'assets/img/sun'+plant.needSun+'.png'" alt="Sol">
+        </span>
+        <span class="plant-img">
+          <img [src]="plant.image" [alt]="plant.nameCommon">
+        </span>
+        <span class="water-img img-small">
+          <img [src]="'assets/img/water'+plant.needWater+'.png'" alt="Riego">
+        </span>
+      </mat-card>
+      <h4 mat-raised-button color="accent" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent">
+        {{plant.nameScientific}}</h4>
+    </section>
 
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>Más información</mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <span>Wikipedia: </span>
-                    <a href="{{plant.txtWikiLink}}" target="_blank">{{plant.txtWikiLink}}</a>
-                  </mat-expansion-panel>
-              </mat-accordion>
-        </section>
-    </mat-card>
+    <!-- Resume section -->
+    <section class="resume">
+      <p>{{plant.txtResume}}</p>
+    </section>
 
+    <!-- Data and intervals section -->
+    <section class="data">
+      <p><strong>TIPO DE PLANTA: </strong>{{plant.type}}</p>
+      <p><strong>INTERVALOS DE SIEMBRA Y RECOGIDA:</strong></p>
+      <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon"
+        [individual]="true"></app-plant-intervals>
+    </section>
+
+    <!-- Description section -->
+    <section class="description">
+
+      <!-- Action buttons -->
+      <div class="example-action-buttons">
+        <button mat-button (click)="openAll()">
+          Desplegar todo el texto
+        </button>
+        <button mat-button (click)="closeAll()">Ocultar todo el texto</button>
+      </div>
+
+      <mat-accordion class="example-headers-align" multi>
+
+        <!-- Description text -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Descripción</mat-panel-title>
+          </mat-expansion-panel-header>
+          <P>{{plant.txtDescription}}</P>
+        </mat-expansion-panel>
+
+        <!-- Uses text -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Usos culinarios y medicinales</mat-panel-title>
+          </mat-expansion-panel-header>
+          <P>{{plant.txtCulinary}}</P>
+        </mat-expansion-panel>
+
+        <!-- Link text -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Más información</mat-panel-title>
+          </mat-expansion-panel-header>
+          <span>Wikipedia: </span>
+          <a href="{{plant.txtWikiLink}}" target="_blank">{{plant.txtWikiLink}}</a>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </section>
+  </mat-card>
 </main>

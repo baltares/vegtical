@@ -22,49 +22,73 @@ export class PlantIntervalsComponent implements OnInit {
     this.generateIntervals();
   }
 
+  /**
+   * Function to generate graphic intervals
+   */
   generateIntervals(): void {
     this.intervalsList.forEach((element) => {
       let interval = document.createElement('div');
-      let barSeed, barHarvest;
-      if (element.type === 'seed') {
-        if(this.individual){
-          barSeed = document.getElementsByClassName('bar-seed')[0];
-        } else {
-          barSeed = document.getElementById(this.plantName).getElementsByClassName('bar-seed')[0];
-        }
-        barSeed.appendChild(interval);
-        // interval.className = "div-seed";
-        // interval.setAttribute("class","div-seed");
-        this.calculateDimensions(element);
-        interval.setAttribute(
-          'style',
-          `position: absolute; display: block; left:${this.startPercent}; bottom:0; height: 8px; border-radius: 4px; width:${this.widthPercent}; background-color: #EA937F;`
-        );
+      let bar:any;
+      let name = (element.type === 'seed')?'bar-seed':'bar-harvest';
+      let color = (element.type === 'seed')?'#EA937F':'#bf5841';
+
+      if (this.individual) {
+        bar = document.getElementsByClassName(name)[0];
       } else {
-        if(this.individual){
-          barHarvest = document.getElementsByClassName('bar-harvest')[0];
-        } else {
-          barHarvest = document.getElementById(this.plantName).getElementsByClassName('bar-harvest')[0];
-        }
-        barHarvest.appendChild(interval);
-        this.calculateDimensions(element);
-        interval.setAttribute(
-          'style',
-          `position: absolute; display: block; left:${this.startPercent}; bottom:0; height: 8px; border-radius: 4px; width:${this.widthPercent}; background-color: rgb(191, 88, 65);`
-        );
+        bar = document.getElementById(this.plantName).getElementsByClassName(name)[0];
       }
+      bar.appendChild(interval);
+      this.calculateDimensions(element);
+      interval.setAttribute(
+        'style',
+        `position: absolute; display: block; left:${this.startPercent}; bottom:0; height: 8px; border-radius: 4px; width:${this.widthPercent}; background-color: ${color};`
+      );
     });
   }
+  // generateIntervals(): void {
+  //   this.intervalsList.forEach((element) => {
+  //     let interval = document.createElement('div');
+  //     let barSeed, barHarvest;
+  //     if (element.type === 'seed') {
+  //       if (this.individual) {
+  //         barSeed = document.getElementsByClassName('bar-seed')[0];
+  //       } else {
+  //         barSeed = document
+  //           .getElementById(this.plantName)
+  //           .getElementsByClassName('bar-seed')[0];
+  //       }
+  //       barSeed.appendChild(interval);
+  //       this.calculateDimensions(element);
+  //       interval.setAttribute(
+  //         'style',
+  //         `position: absolute; display: block; left:${this.startPercent}; bottom:0; height: 8px; border-radius: 4px; width:${this.widthPercent}; background-color: #EA937F;`
+  //       );
+  //     } else {
+  //       if (this.individual) {
+  //         barHarvest = document.getElementsByClassName('bar-harvest')[0];
+  //       } else {
+  //         barHarvest = document
+  //           .getElementById(this.plantName)
+  //           .getElementsByClassName('bar-harvest')[0];
+  //       }
+  //       barHarvest.appendChild(interval);
+  //       this.calculateDimensions(element);
+  //       interval.setAttribute(
+  //         'style',
+  //         `position: absolute; display: block; left:${this.startPercent}; bottom:0; height: 8px; border-radius: 4px; width:${this.widthPercent}; background-color: rgb(191, 88, 65);`
+  //       );
+  //     }
+  //   });
+  // }
+
+  /**
+   * Function to calculate dimensions
+   * @param element 
+   */
   calculateDimensions(element: GraphicIntervalList): void {
-    this.startDayOfYear = this.fc.dateToDayOfYear(
-      this.fc.stringToDate(element.start)
-    );
+    this.startDayOfYear = this.fc.dateToDayOfYear(this.fc.stringToDate(element.start));
     this.startPercent = this.fc.dayOfYearPercent(this.startDayOfYear);
-    this.finishDayOfYear = this.fc.dateToDayOfYear(
-      this.fc.stringToDate(element.finish)
-    );
-    this.widthPercent = this.fc.dayOfYearPercent(
-      this.finishDayOfYear - this.startDayOfYear
-    );
+    this.finishDayOfYear = this.fc.dateToDayOfYear(this.fc.stringToDate(element.finish));
+    this.widthPercent = this.fc.dayOfYearPercent(this.finishDayOfYear - this.startDayOfYear);
   }
 }

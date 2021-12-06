@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantDataModel } from '@core/models/plant-data.model';
 import { FirebasedbService } from '@core/services/firebasedb.service';
-import {CdkDragDrop, moveItemInArray, copyArrayItem} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-plant-list-grid-dd',
@@ -13,20 +13,31 @@ export class PlantListGridDdComponent implements OnInit {
   constructor(private _firebasedbService: FirebasedbService) {}
 
   ngOnInit(): void {
+    //subscription to get list of plants
     this._firebasedbService
       .getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });
   }
+  /**
+   * Function to drag and drop. Not working
+   * @param event 
+   */
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
-      copyArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     }
   }
 }

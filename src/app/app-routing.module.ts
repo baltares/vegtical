@@ -9,6 +9,7 @@ import { PlantLibraryComponent } from '@modules/plant-library/pages/plant-librar
 import { CalendarComponent } from '@modules/calendar/pages/calendar/calendar.component';
 import { UserComponent } from '@core/user/user.component';
 
+//Import auth guard
 import { AuthGuard } from '@auth0/auth0-angular';
 
 

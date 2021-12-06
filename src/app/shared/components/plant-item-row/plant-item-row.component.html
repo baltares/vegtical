@@ -1,30 +1,41 @@
 <mat-card [id]="plant.nameCommon">
+
+    <!-- Plant image -->
     <div class="card-img">
         <img [src]="plant.image" [alt]="plant.nameCommon">
     </div>
     <div class="card-content">
         <div class="card-row card-row-columns">
+
+            <!-- Plant name -->
             <div class="card-column">
                 <mat-card-title>{{plant.nameCommon | uppercase}}</mat-card-title>
                 <mat-card-subtitle>{{plant.nameScientific}}</mat-card-subtitle>
             </div>
+
+            <!-- Plant icons -->
             <div class="card-column">
                 <span class="card-icons">
+
+                    <!-- Sun icons -->
                     <span class="need-sun">
-                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon" [style.color]="setIconColor()">
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Need of sun icon"
+                            [style.color]="setIconColor()">
                             {{needSunIcon[plant.needSun]}}
                         </mat-icon>
                     </span>
+
+                    <!-- Water icons -->
                     <span class="need-water">
                         <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon">
                             water_drop
                         </mat-icon>
-                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon" 
-                        [style.color]="plant.needWater>=1?'#495e6c':'default'">
+                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
+                            [style.color]="plant.needWater>=1?'#495e6c':'default'">
                             water_drop
                         </mat-icon>
                         <mat-icon class="mat-icon" aria-hidden="false" aria-label="Drop icon"
-                        [style.color]="plant.needWater==2?'#495e6c':'default'">
+                            [style.color]="plant.needWater==2?'#495e6c':'default'">
                             water_drop
                         </mat-icon>
                     </span>
@@ -32,8 +43,11 @@
             </div>
 
         </div>
+
+        <!-- Plant intervals -->
         <div class="card-row">
-            <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon" [individual]="false"></app-plant-intervals>
+            <app-plant-intervals [intervalsList]="plant.graphicIntervalList" [plantName]="plant.nameCommon"
+                [individual]="false"></app-plant-intervals>
         </div>
     </div>
 </mat-card>

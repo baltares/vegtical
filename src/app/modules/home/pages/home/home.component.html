@@ -46,8 +46,10 @@
       </div>
     </div>
 
+    <!-- Home buttons -->
     <div class="container-row row-buttons">
 
+      <!-- Login button if user is not logged -->
       <div class="button-login" *ngIf="(auth.isAuthenticated$ | async) === false">
         <button mat-raised-button color="accent"
           class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="loginWithRedirect()">
@@ -55,6 +57,7 @@
         </button>
       </div>
 
+      <!-- Logout button if user is logged -->
       <div class="button-logout" *ngIf="auth.isAuthenticated$ | async">
         <button mat-raised-button color="accent"
           class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="logout()">
@@ -62,6 +65,7 @@
         </button>
       </div>
 
+      <!-- Button to create new garden -->
       <div class="button-create">
         <button mat-raised-button color="accent"
           class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="openDialog()">

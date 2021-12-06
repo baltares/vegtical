@@ -1,48 +1,50 @@
 <mat-toolbar color="primary" class="section-toolbar navbar-shadow">
-    <div class="navbar-center">
+  <div class="navbar-center">
 
-        <div class="header-left header-div">
-            <a routerLinkActive="active" class="icon-container" (click)="onBack()">
-                <span mat-icon-button class="example-icon" aria-label="Example icon-button with arrow back icon">
-                  <mat-icon>arrow_back</mat-icon>
-                </span>
-                <span class="text">Atrás</span>
-              </a>
-        </div>
-      
-        <div class="header-div">
-            <h3 class="page-title">{{pageTitle}}</h3>
-        </div>
-
-        <div class="header-right header-div">
-          <a routerLinkActive="active" class="icon-container" id="navSectionEdit" style="display: none;">
-            <span class="text">Editar</span>
-            <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
-              <mat-icon>edit</mat-icon>
-            </span>
-          </a>
-          <!-- <a routerLinkActive="active" class="icon-container" id="navSectionDelete" *ngIf="section=='garden'">
-            <span class="text">Borrar</span>
-            <span mat-icon-button class="example-icon" aria-label="Example icon-button with delete icon">
-              <mat-icon>delete</mat-icon>
-            </span>
-          </a> -->
-          <div class="list-navigation" id="navSectionListNavigation" *ngIf="section=='plant-detail'" >
-            <a routerLinkActive="active" class="icon-container" (click)="previousItem()">
-              <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
-                <mat-icon>navigate_before</mat-icon>
-              </span>
-              <span class="text">Anterior</span>
-            </a>
-            <a routerLinkActive="active" class="icon-container" (click)="nextItem()">
-              <span class="text">Siguiente</span>
-              <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
-                <mat-icon>navigate_next</mat-icon>
-              </span>
-            </a>
-          </div>
-        </div>
+    <!-- Left link: back -->
+    <div class="header-left header-div">
+      <a routerLinkActive="active" class="icon-container" (click)="onBack()">
+        <span mat-icon-button class="example-icon" aria-label="Example icon-button with arrow back icon">
+          <mat-icon>arrow_back</mat-icon>
+        </span>
+        <span class="text">Atrás</span>
+      </a>
     </div>
 
-  
-  </mat-toolbar>
+    <!-- Page title -->
+    <div class="header-div">
+      <h3 class="page-title">{{pageTitle}}</h3>
+    </div>
+
+    <!-- Right links -->
+    <div class="header-right header-div">
+
+      <!-- Edit garden link -->
+      <a routerLinkActive="active" class="icon-container" id="navSectionEdit" style="display: none;">
+        <span class="text">Editar</span>
+        <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+          <mat-icon>edit</mat-icon>
+        </span>
+      </a>
+
+      <!-- Plants list navigation links -->
+      <div class="list-navigation" id="navSectionListNavigation" *ngIf="section=='plant-detail'">
+        <a routerLinkActive="active" class="icon-container" (click)="previousItem()">
+          <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+            <mat-icon>navigate_before</mat-icon>
+          </span>
+          <span class="text">Anterior</span>
+        </a>
+        <a routerLinkActive="active" class="icon-container" (click)="nextItem()">
+          <span class="text">Siguiente</span>
+          <span mat-icon-button class="example-icon" aria-label="Example icon-button with edit icon">
+            <mat-icon>navigate_next</mat-icon>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
+
+</mat-toolbar>
