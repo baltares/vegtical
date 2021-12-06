@@ -9,7 +9,8 @@ export const environment = {
   auth: {
     domain,
     clientId,
-    redirectUri: window.location.origin,
+    // redirectUri: window.location.origin,
+    redirectUri: 'https://baltares.github.io/vegtical/#/home',
   },
   firebaseConfig: {
     apiKey: "AIzaSyBfRJsndqO1ESOHu6fRUAEZ8SEnaLQbat4",
