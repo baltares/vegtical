@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavbarSectionComponent } from './components/navbar-section/navbar-section.component';
@@ -25,6 +25,7 @@ const components = [NavbarSectionComponent, PlantListRowComponent, PlantItemRowC
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule
   ],
