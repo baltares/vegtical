@@ -6,15 +6,20 @@ import { FunctionsService } from '@core/services/functions.service';
 @Component({
   selector: 'app-available-plants',
   templateUrl: './available-plants.component.html',
-  styleUrls: ['./available-plants.component.scss']
+  styleUrls: ['./available-plants.component.scss'],
 })
 export class AvailablePlantsComponent implements OnInit {
   plantsList: PlantDataModel[];
 
-  constructor(private _firebasedbService: FirebasedbService, public fc:FunctionsService) { }
+  constructor(
+    private _firebasedbService: FirebasedbService,
+    public fc: FunctionsService
+  ) {}
 
   ngOnInit(): void {
-    this._firebasedbService.getPlants()
+    //subscribe to list of plants
+    this._firebasedbService
+      .getPlants()
       .subscribe((params: PlantDataModel[]) => {
         this.plantsList = params;
       });

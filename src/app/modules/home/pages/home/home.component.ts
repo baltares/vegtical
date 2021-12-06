@@ -19,24 +19,33 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
+  /**
+   * Function to redirecto to login
+   */
   loginWithRedirect(): void {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
+  /**
+   * Function to logout and return to document origin
+   */
   logout(): void {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
-  hideLogin(): void {
-    this.showLogin = false;
-  }
-
+  /**
+   * Function to open add garden component dialog
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(AddGardenComponent);
   }
-
+  /**
+   * Function to get the actual date
+   * @returns 
+   */
   getToday(): string {
     let todayDate = new Date();
-    const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre',];
-    return ('Hoy, ' + todayDate.getDate() + ' de ' + months[todayDate.getMonth()]);
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    return (
+      'Hoy, ' + todayDate.getDate() + ' de ' + months[todayDate.getMonth()]
+    );
   }
 }

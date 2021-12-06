@@ -1,3 +1,4 @@
+<!-- Available plants to seed -->
 <h4>
     <mat-icon class="mat-icon" aria-hidden="false" aria-label="Plant icon">
         spa
@@ -5,14 +6,15 @@
     <span>Puedes sembrar:</span>
 </h4>
 <div *ngIf="plantsList">
-    <ng-container *ngFor="let plant of plantsList" >
+    <ng-container *ngFor="let plant of plantsList">
         <span *ngIf="fc.checkAvailable('seed',plant)">
-            <a [routerLink]="['/plant-detail', plant.nameCommon]" >{{plant.nameCommon}}</a>
+            <a [routerLink]="['/plant-detail', plant.nameCommon]">{{plant.nameCommon}}</a>
             <span>, </span>
         </span>
     </ng-container>
 </div>
 
+<!-- Available plants to harvest -->
 <h4>
     <mat-icon class="mat-icon" aria-hidden="false" aria-label="Basket icon">
         shopping_basket
@@ -20,9 +22,9 @@
     <span>Puedes recolectar:</span>
 </h4>
 <div *ngIf="plantsList">
-    <ng-container *ngFor="let plant of plantsList" >
+    <ng-container *ngFor="let plant of plantsList">
         <span *ngIf="fc.checkAvailable('harvest',plant)">
-            <a [routerLink]="['/plant-detail', plant.nameCommon]" >{{plant.nameCommon}}</a>
+            <a [routerLink]="['/plant-detail', plant.nameCommon]">{{plant.nameCommon}}</a>
             <span>, </span>
         </span>
     </ng-container>

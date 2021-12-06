@@ -13,19 +13,19 @@ export class GardenListComponent implements OnInit {
   userName: string;
   userGardens2: GardenData2Model[];
 
-  constructor(
-    private firestore: FirestoreService,
-    public auth: AuthService
-  ) {}
+  constructor(private firestore: FirestoreService, public auth: AuthService) {}
 
   ngOnInit(): void {
+    //subscribe to user name and load user gardens then
     if (this.auth.user$)
       this.auth.user$.subscribe((profile) => {
         if (profile != null) this.userName = profile.sub;
         this.loadUserGardens2();
       });
   }
-
+  /**
+   * Function to subscribe to the user gardens list
+   */
   loadUserGardens2(): void {
     this.firestore
       .getAllUserGardens(this.userName)

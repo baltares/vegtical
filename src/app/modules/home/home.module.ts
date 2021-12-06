@@ -5,13 +5,12 @@ import { SharedModule } from '@shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-
+//Home components
 import { HomeComponent } from './pages/home/home.component';
 import { GardenListComponent } from './components/garden-list/garden-list.component';
 import { GardenItemComponent } from './components/garden-item/garden-item.component';
 import { AddGardenComponent } from './components/add-garden/add-garden.component';
 import { AvailablePlantsComponent } from './components/available-plants/available-plants.component';
-
 
 @NgModule({
   declarations: [
@@ -19,18 +18,15 @@ import { AvailablePlantsComponent } from './components/available-plants/availabl
     GardenListComponent,
     GardenItemComponent,
     AddGardenComponent,
-    AvailablePlantsComponent
+    AvailablePlantsComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     SharedModule,
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
-  exports: [
-    HomeComponent
-  ]
-
+  exports: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

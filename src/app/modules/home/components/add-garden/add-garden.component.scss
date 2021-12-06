@@ -1,64 +1,65 @@
-#inputName mat-form-field, #inputSelect mat-form-field {
-    width: 100%;
+#inputName mat-form-field,
+#inputSelect mat-form-field {
+  width: 100%;
 }
 #inputChoose {
-    max-height: none;
-    margin: 16px 0;
-    padding: 0;
-    overflow: visible;
+  max-height: none;
+  margin: 16px 0;
+  padding: 0;
+  overflow: visible;
 }
-
 #inputChoose label {
-    margin-bottom: 8px;
-    display: block;
+  margin-bottom: 8px;
+  display: block;
 }
 #inputChoose mat-radio-button {
-    display: flex;
-    padding: 8px 0;
+  display: flex;
+  padding: 8px 0;
 }
 #inputSize {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 #inputSize mat-form-field {
-    width: 120px;
+  width: 120px;
 }
-#inputSize .mat-form-field-hint-wrapper, .mat-form-field-subscript-wrapper {
-    width: 200%;
+#inputSize .mat-form-field-hint-wrapper,
+.mat-form-field-subscript-wrapper {
+  width: 200%;
 }
 #buttons {
-    position: absolute;
-    bottom: 90px;
-    left: 24px;
-    right: 24px;
-    justify-content: space-between;
+  position: absolute;
+  bottom: 90px;
+  left: 24px;
+  right: 24px;
+  justify-content: space-between;
 }
 #buttons button {
-    width: 120px;
-    margin: 0;
-    padding: 8px;
+  width: 120px;
+  margin: 0;
+  padding: 8px;
 }
 .guest-user {
-    color: #597283;
-    font-style: italic;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 16px;
-    text-align: center;
+  color: #597283;
+  font-style: italic;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  text-align: center;
 }
 .text-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 .text-hint {
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 75%;
-    margin-top: -16px;
-    display: block;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 75%;
+  margin-top: -16px;
+  display: block;
 }
 .text-error {
-    font-size: 75%;
-    width: 300px;
-    margin-top: -16px;
+  font-size: 75%;
+  width: 300px;
+  margin-top: -16px;
 }
